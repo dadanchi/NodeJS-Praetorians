@@ -6,8 +6,10 @@ const attachTo = (app, data) => {
 
     apiRouter
         .get('/', (req, res) => {
-            return res.send('Hello');
+            return res.render('home');
                 });
+
+    app.use('/', apiRouter);
 };
 
 module.exports = { attachTo };
