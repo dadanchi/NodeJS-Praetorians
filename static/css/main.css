@@ -1,3 +1,10 @@
 h1 {
     text-align: center;
 }
+
+#register-btn {
+    float: right;
+    width: 15%;
+    height: 8%;
+    font-size: 150%;
+}

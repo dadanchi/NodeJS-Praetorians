@@ -1,10 +1,15 @@
+include _auth
+
 <!DOCTYPE html>
 html(lang="en")
 head
     meta(charset="UTF-8")
     link(rel="stylesheet", href="static/css/main.css")
+    link(rel="stylesheet", href="libs/bootstrap/dist/css/bootstrap.css")
+    script(src='/libs/jquery/dist/jquery.js')
     title Document
     block head
 body
+    +auth()
     .container
         block body
