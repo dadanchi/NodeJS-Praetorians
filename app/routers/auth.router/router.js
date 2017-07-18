@@ -4,11 +4,11 @@ const attachTo = (app, data) => {
     const router = new Router();
 
     router
-        .get('/', (req, res) => {
+        .get('/sign-in', (req, res) => {
             return res.render('auth/form');
                 });
 
-    app.use('/authenticate', router);
+    app.use('/auth', router);
 };
 
 module.exports = { attachTo };
