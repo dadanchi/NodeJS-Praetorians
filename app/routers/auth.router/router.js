@@ -5,7 +5,10 @@ const attachTo = (app, data) => {
 
     router
         .get('/sign-in', (req, res) => {
-            return res.render('auth/form');
+            return res.render('auth/loginForm');
+                })
+        .get('/sign-up', (req, res) => {
+            return res.render('auth/regForm');
                 });
 
     app.use('/auth', router);

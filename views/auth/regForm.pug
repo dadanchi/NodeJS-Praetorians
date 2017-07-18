@@ -1,0 +1,12 @@
+extends ../_shared/_master
+block body
+    div#reg-form
+        form(action='/auth/sign-up', method="POST")
+            input.form-control(type="text" name="username" placeholder="Enter username")
+            input.form-control(type="password" name="password" placeholder="Enter password")
+            div
+                input.form-control.name-info-left(type="text" name="firstname" placeholder="Enter first name")
+                input.form-control.name-info-right(type="text" name="lastname" placeholder="Enter last name")
+            input.form-control(type="text" name="town" placeholder="Enter town")
+            button.btn.btn-success#btn-register
+                | Register
