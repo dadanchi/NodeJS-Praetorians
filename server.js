@@ -6,7 +6,6 @@ const async = () => {
 };
 
 const config = require('./config');
-const kk = require('./app/app');
 
 async()
     .then(() => require('./db').init(config.connectionString))
