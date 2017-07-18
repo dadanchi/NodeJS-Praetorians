@@ -6,7 +6,6 @@ const attachTo = (app, data) => {
 
     apiRouter
         .get('/', (req, res) => {
-            console.log('omega');
             return res.send('Hello');
                 });
 };
