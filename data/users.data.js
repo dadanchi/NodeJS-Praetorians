@@ -7,8 +7,9 @@ class UsersData extends BaseData {
     }
 
     findByUserName(username) {
-        return this.filterBy({ username: new RegExp(username, 'i') })
-                    .then(([user]) => user);
+        return this
+                .filterBy({ username: new RegExp(username, 'i') })
+                .then(([user]) => user);
     }
 
     checkPassword(username, password) {

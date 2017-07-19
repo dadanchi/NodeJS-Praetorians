@@ -9,7 +9,8 @@ const config = require('./config');
 
 async()
     .then(() => require('./db').init(config.connectionString))
-    .then((app) => require('./app').init())
+    .then((db) => require('./data').init(db))
+    .then((data) => require('./app').init(data))
     .then((app) => {
         app.listen(config.port, () => console.log('Tva e server'));
     });

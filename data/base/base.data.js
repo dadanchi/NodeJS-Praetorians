@@ -9,13 +9,18 @@ class BaseData {
         this.collection = this.db.collection(this.collectionName);
     }
 
+    filterBy(props) {
+        return this.collection.find(props)
+            .toArray();
+    }
+
     getAll() {
             return this.collection.find()
                 .toArray();
     }
 
     create(model) {
-        return this.collectionName.insert(model)
+        return this.collection.insert(model)
             .then(() => {
                 return model;
             });

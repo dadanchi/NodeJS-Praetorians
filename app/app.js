@@ -2,8 +2,13 @@
 /* globals __dirname */
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
+
 const init = (data) => {
     const app = express();
+
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     app.set('view engine', 'pug');
     require('./routers')
