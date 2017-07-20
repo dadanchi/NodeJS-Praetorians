@@ -8,19 +8,19 @@ const attachTo = (app, data) => {
     router
         .get('/sign-in', (req, res) => {
             return res.render('auth/loginForm');
-                })
+        })
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/auth/sign-in',
         }))
         .get('/sign-up', (req, res) => {
             return res.render('auth/regForm');
-                })
+        })
         .post('/sign-up', (req, res) => {
-            return controller.signUp(req, res);
-        });
+    return controller.signUp(req, res);
+});
 
-    app.use('/auth', router);
+app.use('/auth', router);
 };
 
 module.exports = { attachTo };
