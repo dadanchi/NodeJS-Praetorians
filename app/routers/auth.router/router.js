@@ -18,6 +18,10 @@ const attachTo = (app, data) => {
         })
         .post('/sign-up', (req, res) => {
             return controller.signUp(req, res);
+        })
+        .get('/sign-out', (req, res) => {
+            req.logout();
+            res.redirect('/');
         });
 
 app.use('/auth', router);

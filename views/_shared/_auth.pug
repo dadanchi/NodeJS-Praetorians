@@ -1,6 +1,6 @@
 mixin auth()
     if user
-        form(action="/auth/sign-out" method="post")
+        form(action="/auth/sign-out" method="get")
             button.nav-btn
                 | sign-out
     else
