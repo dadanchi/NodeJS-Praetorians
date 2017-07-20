@@ -16,7 +16,7 @@ class UsersController {
 
     signUp(req, res) {
         const bodyUser = req.body;
-        this.data.users.findByUserName(bodyUser.username)
+        return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
                     throw new Error('User already exists');
