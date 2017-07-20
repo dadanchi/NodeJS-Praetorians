@@ -17,8 +17,8 @@ const attachTo = (app, data) => {
             return res.render('auth/regForm');
         })
         .post('/sign-up', (req, res) => {
-    return controller.signUp(req, res);
-});
+            return controller.signUp(req, res);
+        });
 
 app.use('/auth', router);
 };

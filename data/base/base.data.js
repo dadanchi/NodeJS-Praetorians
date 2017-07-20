@@ -26,6 +26,12 @@ class BaseData {
             });
     }
 
+    findById(id) {
+        return this.collection.findOne({
+            _id: new ObjectID(id),
+        });
+    }
+
     _getCollectionName() {
         return this.ModelClass.name.toLowerCase() + 's';
     }

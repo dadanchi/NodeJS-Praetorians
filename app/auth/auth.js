@@ -9,7 +9,7 @@ const applyTo = (app, data) => {
     passport.use(new Strategy((username, password, done) => {
         data.users.checkPassword(username, password)
             .then(() => {
-                return data.users.findByUsername(username);
+                return data.users.findByUserName(username);
             })
             .then((user) => {
                 done(null, user);
