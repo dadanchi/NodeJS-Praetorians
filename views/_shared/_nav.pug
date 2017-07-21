@@ -1,14 +1,14 @@
 mixin nav()
-    ul
-        li
+    ul.nav.nav-tabs(role='tablist')
+        li.active
             a(href="/")
-                |Home
+                | Home
         li
-            a(href="/items")
-                | All items
+            a(href='/items')
+                | All posts
         li
-            a(href="/items/form")
-                | Add item
+            a(href='/items/form')
+                | Add post
         li
-            a(href="/auth/sign-in")
+            a(href='/auth/sign-in')
                 | Sign in
