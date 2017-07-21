@@ -1,0 +1,7 @@
+extends ../_shared/_master
+block body
+    form(action="/items" method="POST")
+        input.form-control(name="title" required type="text" placeholder="Enter title")
+        input.form-control(name="content" required type="textarea" placeholder="Enter content")
+        button.btn.btn-success
+            | Save
