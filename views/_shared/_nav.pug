@@ -9,6 +9,11 @@ mixin nav()
         li
             a(href='/items/form')
                 | Add post
-        li
-            a(href='/auth/sign-in')
-                | Sign in
+        if user
+            form(action="/auth/sign-out" method="get")
+                button.btn.btn-danger#register-btn
+                    | sign-out
+        else
+            form(action="/auth/sign-in" method="get")
+                button.btn.btn-success#logout-btn
+                    | Sign In

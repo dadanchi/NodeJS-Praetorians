@@ -15,7 +15,6 @@ class UsersData extends BaseData {
     checkPassword(username, password) {
         return this.findByUserName(username)
             .then((user) => {
-                console.log(user);
                 if (!user) {
                     throw new Error('Invalid user');
                 }

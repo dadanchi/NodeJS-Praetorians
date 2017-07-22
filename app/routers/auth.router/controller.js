@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 class UsersController {
     constructor(data) {
         this.data = data;
@@ -21,14 +23,20 @@ class UsersController {
                 if (dbUser) {
                     throw new Error('User already exists');
                 }
-                return this.data.users.create(bodyUser);
-             })
-            .then((dbUser) => {
-                return res.redirect('/');
+                return this.data.users.create(bodyUser)
+                    .then((x) => {
+                        passport.authenticate('local')(req, res, () => {
+                        res.redirect('/');
+                    });
             });
-            // .catch((err) => {
-            //     req.flash('error', err);
-            // });
+        });
+    }
+
+    signIn() {
+        return passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/auth/sign-in',
+        });
     }
 }
 
