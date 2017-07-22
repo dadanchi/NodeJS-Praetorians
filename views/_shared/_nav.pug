@@ -1,19 +1,25 @@
 mixin nav()
-    ul.nav.nav-tabs(role='tablist')
-        li.active
-            a(href="/")
-                | Home
-        li
-            a(href='/items')
-                | All posts
-        li
-            a(href='/items/form')
-                | Add post
-        if user
-            form(action="/auth/sign-out" method="get")
-                button.btn.btn-danger#register-btn
-                    | sign-out
-        else
+    if user
+        form(action="/auth/sign-out" method="get")
+            button.btn.btn-danger#register-btn
+                | sign-out
+        ul.nav.nav-tabs(role='tablist')
+            li.active
+                a(href="/")
+                    | Home
+            li
+                a(href='/items')
+                    | All Topics
+
+    else
+        ul.nav.nav-tabs(role='tablist')
+            li.active
+                a(href="/")
+                    | Home
+            li
+                a(href='/items')
+                    | All Topics
+
             form(action="/auth/sign-in" method="get")
                 button.btn.btn-success#logout-btn
                     | Sign In
