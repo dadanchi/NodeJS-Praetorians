@@ -7,4 +7,5 @@ block body
     ul
         each topic in context
             li
-                =topic.title
+                a(href=`/topics/:title=${topic.title}`)
+                    =topic.title

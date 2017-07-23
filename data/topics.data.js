@@ -10,6 +10,12 @@ class TopicsData extends BaseData {
         // custom validation
         return super._isModelValid(model);
     }
+
+    findByTitle(title) {
+        return this
+            .filterBy({ title: new RegExp(title, 'i') })
+            .then(([topic]) => topic);
+    }
 }
 
 module.exports = TopicsData;
