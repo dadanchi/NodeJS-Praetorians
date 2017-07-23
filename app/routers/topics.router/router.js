@@ -9,6 +9,18 @@ const attachTo = (app, data) => {
         .get('/', (req, res) => {
             return controller.getAll(req, res);
         })
+        .post('/', (req, res) => {
+            const topic = req.body;
+            topic.comments = [];
+
+            return data.topics.create(topic)
+                .then((top) => {
+                    return res.redirect('/topics');
+                })
+                .catch((err) => {
+                    return res.redirect('/form');
+            });
+        })
         .get('/form', (req, res) => {
             return res.render('topics/form');
         })
@@ -27,28 +39,17 @@ const attachTo = (app, data) => {
         .post('/:title/comments', (req, res) => {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
-            const comment = req.body.comment;
+            const comment = {
+                content: req.body.comment,
+                author: req.user.username,
+            };
 
-            return data.topics.findByTitle(title)
-                .then((topic) => {
-                    topic.comments.push(comment);
-                })
+            return data.topics.addComment(comment, title)
                 .then(() => {
                     return res.redirect(`/topics/:title=${title}`);
                 });
-        })
-        .post('/', (req, res) => {
-            const topic = req.body;
-            topic.comments = [];
-
-            return data.topics.create(topic)
-                .then((top) => {
-                    return res.redirect('/topics');
-                })
-                .catch((err) => {
-                    return res.redirect('/form');
-                });
         });
+
     app.use('/topics', router);
 };
 
