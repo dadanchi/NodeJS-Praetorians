@@ -2,9 +2,15 @@ class Topic {
     constructor(title, content) {
         this._title = title;
         this._content = content;
+        this._comments = [1, 2, 3];
     }
+
     get title() {
         return this._title;
+    }
+
+    get comments() {
+        return this._comments;
     }
 
     get content() {

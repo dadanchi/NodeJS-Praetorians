@@ -55,3 +55,7 @@ h1 {
     float: right !important;
     margin-right: -2%;
 }
+
+textarea {
+    resize: none;
+}

@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const Topic = require('../../../models/topic.model');
 
 const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
@@ -22,9 +23,24 @@ const attachTo = (app, data) => {
                 });
             // get the comments about the topic here
         })
+    // TODO add a comment route
+        .post('/:title/comments', (req, res) => {
+            const removedString = ':title=';
+            const title = req.params.title.substr(removedString.length);
+            const comment = req.body.comment;
+
+            return data.topics.findByTitle(title)
+                .then((topic) => {
+                    topic.comments.push(comment);
+                })
+                .then(() => {
+                    return res.redirect(`/topics/:title=${title}`);
+                });
+        })
         .post('/', (req, res) => {
             const topic = req.body;
-            // validate item
+            topic.comments = [];
+
             return data.topics.create(topic)
                 .then((top) => {
                     return res.redirect('/topics');
