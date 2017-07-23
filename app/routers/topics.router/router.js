@@ -40,13 +40,17 @@ const attachTo = (app, data) => {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
             const comment = {
+                topic: title,
                 content: req.body.comment,
                 author: req.user.username,
             };
 
-            return data.topics.addComment(comment, title)
-                .then(() => {
-                    return res.redirect(`/topics/:title=${title}`);
+            return Promise.all([
+                data.users.addComment(comment),
+                data.topics.addComment(comment),
+            ])
+            .then(() => {
+                return res.redirect(`/topics/:title=${title}`);
                 });
         });
 

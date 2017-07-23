@@ -12,6 +12,29 @@ class UsersData extends BaseData {
                 .then(([user]) => user);
     }
 
+    async addComment(comment) {
+        const newUser = await this.collection.findOne(
+            {
+                username: comment.author,
+            });
+        const newComment = {
+            content: comment.content,
+            topic: comment.topic,
+        };
+
+        newUser.comments.push(newComment);
+
+        return this.collection.updateOne(
+            {
+                username: comment.author,
+            },
+                newUser
+        )
+        .then(() => {
+            return newUser;
+        });
+    }
+
     checkPassword(username, password) {
         return this.findByUserName(username)
             .then((user) => {

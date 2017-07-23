@@ -18,6 +18,7 @@ class UsersController {
 
     signUp(req, res) {
         const bodyUser = req.body;
+        bodyUser.comments = [];
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {

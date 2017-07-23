@@ -11,21 +11,26 @@ class TopicsData extends BaseData {
         return super._isModelValid(model);
     }
 
-    async addComment(comment, title) {
+    async addComment(comment) {
         const newTopic = await this.collection.findOne(
             {
-                title: title,
-            });
-        newTopic.comments.push(comment);
+                title: comment.topic,
+        });
+        const newComment = {
+            content: comment.content,
+            author: comment.author,
+        };
+
+        newTopic.comments.push(newComment);
 
         return this.collection.updateOne(
             {
-                title: title,
+                title: comment.topic,
             },
                 newTopic
             )
             .then(() => {
-                return comment;
+                return newComment;
             });
     }
 
