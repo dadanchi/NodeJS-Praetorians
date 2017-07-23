@@ -1,27 +1,27 @@
 const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
-    app.get('/items', (req, res) => {
+    app.get('/topics', (req, res) => {
         // auth
         return controller.getAll(req, res);
     });
 
-    app.get('/items/form', (req, res) => {
-        return res.render('items/form');
+    app.get('/topics/form', (req, res) => {
+        return res.render('topics/form');
     });
 
-    app.post('/items', (req, res) => {
+    app.post('/topics', (req, res) => {
         const item = req.body;
 
         // validate item
-        return data.items.create(item)
-            .then((dbItem) => {
-                return res.redirect('/items');
+        return data.topics.create(item)
+            .then((topic) => {
+                return res.redirect('/topics');
             })
             .catch((err) => {
                 // connect-flash
                 req.flash('error', err);
-                return res.redirect('/items/form');
+                return res.redirect('/topics/form');
             });
     });
 };

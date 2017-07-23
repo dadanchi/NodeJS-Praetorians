@@ -1,4 +1,4 @@
-class Item {
+class Topic {
     constructor(title, content) {
         this._title = title;
         this._content = content;
@@ -23,7 +23,7 @@ class Item {
     }
 
     static toViewModel(model) {
-        const viewModel = new Item();
+        const viewModel = new Topic();
 
         Object.keys(model)
             .forEach((prop) => {
@@ -34,4 +34,4 @@ class Item {
     }
 }
 
-module.exports = Item;
+module.exports = Topic;

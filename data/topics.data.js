@@ -1,9 +1,9 @@
 const BaseData = require('./base/base.data');
-const Item = require('../models/item.model');
+const Topic = require('../models/topic.model');
 
-class ItemsData extends BaseData {
+class TopicsData extends BaseData {
     constructor(db) {
-        super(db, Item, Item);
+        super(db, Topic, Topic);
     }
 
     _isModelValid(model) {
@@ -12,4 +12,4 @@ class ItemsData extends BaseData {
     }
 }
 
-module.exports = ItemsData;
+module.exports = TopicsData;

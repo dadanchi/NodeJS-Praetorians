@@ -1,12 +1,12 @@
 const UsersData = require('./users.data');
-const ItemsData = require('./items.data');
+const TopicsData = require('./topics.data');
 
 const init = (db) => {
     return Promise.resolve({
         // topics
         // comments
         users: new UsersData(db),
-        items: new ItemsData(db),
+        topics: new TopicsData(db),
     });
 };
 

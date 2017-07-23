@@ -1,0 +1,10 @@
+extends ../_shared/_master
+block body
+    if user
+        form(action="/topics/form" method="get")
+            button.btn.btn-success
+                | Start New Topic
+    ul
+        each topic in context
+            li
+                =topic.title
