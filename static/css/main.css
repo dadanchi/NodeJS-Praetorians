@@ -18,7 +18,11 @@ a:link, a:hover, a:active {
 a:hover {
     font-size: 1.05em;
 }
-
+#post-topic-btn{
+    float:left;
+    margin-top: 2%;
+    margin-left: 1%;
+}
 #register-btn {
     float: right;
     width: 15%;
@@ -84,13 +88,13 @@ ul {
 .container{
     margin-left: 25%;
     width: 50%;
-    
+
 }
 
 div.topic {
     height: 7vh;
     width: 100%;
-    
+
 }
 
 div.author, .container, div#topic-info, div.topic, div.topic a, .topic-wrapper:after {

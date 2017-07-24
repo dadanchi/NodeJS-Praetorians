@@ -1,9 +1,6 @@
 extends ../_shared/_master
 block body
-    if user
-        form(action="/topics/form" method="get")
-            button.btn.btn-success
-                | Start New Topic
+
     h1
         | Topics
     div#topic-info
@@ -25,3 +22,8 @@ block body
                 //- doesnt work
                 //- span
                 //-     =topic.comments.length
+    if user
+    div#post-topic-btn
+        form(action="/topics/form" method="get")
+            button.btn.btn-success
+                | Start New Topic
