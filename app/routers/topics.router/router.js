@@ -20,7 +20,7 @@ const attachTo = (app, data) => {
                 })
                 .catch((err) => {
                     return res.redirect('/form');
-            });
+                });
         })
         .get('/form', (req, res) => {
             return res.render('topics/form');
@@ -36,7 +36,7 @@ const attachTo = (app, data) => {
                 });
             // get the comments about the topic here
         })
-    // TODO add a comment route
+        // TODO add a comment route
         .post('/:title/comments', (req, res) => {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
@@ -50,8 +50,13 @@ const attachTo = (app, data) => {
                 data.users.addComment(comment),
                 data.topics.addComment(comment),
             ])
-            .then(() => {
-                return res.redirect(`/topics/:title=${title}`);
+                .then(() => {
+                    return res.redirect(`/topics/:title=${title}`);
+                })
+                // for debugging
+                .catch((err) => {
+                    console.log(err);
+                    return res.redirect(`/topics/:title=${title}`);
                 });
         });
 

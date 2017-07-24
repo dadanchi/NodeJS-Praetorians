@@ -15,8 +15,8 @@ class BaseData {
     }
 
     getAll() {
-            return this.collection.find()
-                .toArray();
+        return this.collection.find().limit(10)
+            .toArray();
     }
 
     create(model) {
