@@ -4,8 +4,23 @@ block body
         form(action="/topics/form" method="get")
             button.btn.btn-success
                 | Start New Topic
-    ul
-        each topic in context
-            li
+    h1
+        | Topics
+    div#topic-info
+        div.title-info
+            | Title
+        div.author-info
+            | Author
+        div.comments-count-info
+            | Comments
+    each topic in context
+        div.topic
+            div.topic-wrapper.title-info
                 a(href=`/topics/:title=${topic.title}`)
                     =topic.title
+            div.topic-wrapper.author-info
+                a(href='/gosho')
+                    =topic.author
+            div.topic-wrapper.comments-count-info
+                span
+                    =topic.comments.length

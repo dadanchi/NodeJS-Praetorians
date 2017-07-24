@@ -11,6 +11,7 @@ const attachTo = (app, data) => {
         })
         .post('/', (req, res) => {
             const topic = req.body;
+            topic.author = req.user.username;
             topic.comments = [];
 
             return data.topics.create(topic)

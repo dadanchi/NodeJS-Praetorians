@@ -1,3 +1,9 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
 h1 {
     text-align: center;
 }
@@ -58,4 +64,51 @@ h1 {
 
 textarea {
     resize: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+div.topic {
+    height: 7vh;
+    margin-left: 25%;
+    width: 50%;
+    overflow: auto;
+}
+
+div.topic a {
+    float: left;
+}
+
+div#topic-info {
+    border-bottom:1px solid black;
+    margin-left: 25%;
+    width: 50%;
+    overflow: auto;
+    padding-left: 0.5%;
+    font-size: 150%;
+}
+
+.topic-wrapper {
+    overflow: auto;
+    float: left;
+    padding: 1%;
+    font-size: 150%;
+}
+
+div#topic-info>div {
+    float: left;
+}
+
+div.title-info {
+    width: 50%;
+}
+
+.author-info {
+    width: 36%;
+}
+
+.topic-wrapper.comments-count-info{
+        margin-left: 4%;
 }
