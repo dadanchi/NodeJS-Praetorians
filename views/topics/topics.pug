@@ -19,7 +19,8 @@ block body
                 a(href=`/topics/:title=${topic.title}`)
                     =topic.title
             div.topic-wrapper.author-info
-                a(href='/gosho')
+                //a(href='/gosho')
+                a(href=`/topisc/:author=${topic.author}`)
                     =topic.author
             div.topic-wrapper.comments-count-info
                 //- doesnt work

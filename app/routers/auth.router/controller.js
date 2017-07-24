@@ -33,7 +33,7 @@ class UsersController {
         });
     }
 
-    signIn() {
+    signIn(req, res) {
         return passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/auth/sign-in',

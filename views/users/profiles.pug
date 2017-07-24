@@ -1,0 +1,18 @@
+extends ../_shared/_master
+block body
+        h1
+                | This is the profile of :
+        h3
+                ul
+                        li
+                                | Username : 
+                                =context.username
+                        li
+                                | First name :
+                                =context.firstname
+                        li
+                                | Last name :
+                                =context.lastname
+                        li
+                                | Town :
+                                =context.town
