@@ -10,6 +10,9 @@ mixin nav()
             li
                 a(href='/topics')
                     | All Topics
+            li
+                a(href=`/:users=${user.username}`)
+                    =user.username
 
     else
         ul.nav.nav-tabs(role='tablist')
