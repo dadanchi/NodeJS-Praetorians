@@ -13,7 +13,6 @@ block body
             div.author
                 span
                     ='Written by '
-                //a.author(href='gosho')
                 a(href=`/:users=${comment.author}`)
                     =comment.author
     if user
