@@ -7,6 +7,17 @@ html, body {
 h1 {
     text-align: center;
 }
+a{
+    color: black !important;
+}
+
+a:link, a:hover, a:active {
+    text-decoration: none !important;
+}
+
+a:hover {
+    font-size: 1.05em;
+}
 
 #register-btn {
     float: right;
@@ -70,15 +81,19 @@ ul {
   list-style-type: none;
 }
 
-div.topic {
-    height: 7vh;
+.container{
     margin-left: 25%;
     width: 50%;
-    white-space: initial;
-
+    
 }
 
-div.topic, div.topic a, .topic-wrapper:after {
+div.topic {
+    height: 7vh;
+    width: 100%;
+    
+}
+
+div.author, .container, div#topic-info, div.topic, div.topic a, .topic-wrapper:after {
   content: "";
   display: table;
   clear: both;
@@ -90,8 +105,7 @@ div.topic a {
 
 div#topic-info {
     border-bottom:1px solid black;
-    margin-left: 25%;
-    width: 50%;
+    width: 100%;
     padding-left: 0.5%;
     font-size: 150%;
 }
@@ -100,6 +114,9 @@ div#topic-info {
     float: left;
     padding: 1%;
     font-size: 150%;
+}
+
+div.comment, .topic-wrapper, div.description {
     word-break:break-all;
 }
 
@@ -116,5 +133,25 @@ div.title-info {
 }
 
 .topic-wrapper.comments-count-info{
-        margin-left: 4%;
+    margin-left: 4%;
+}
+
+div.description {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding: 1% 0%;
+}
+
+div.author>span {
+    margin-left: 0%;
+}
+
+a.author {
+    color: green!important;
+}
+
+div.author {
+    width: 100%;
+    margin-bottom: 1%;
+    border-bottom: 1px solid black;
 }
