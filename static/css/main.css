@@ -74,7 +74,14 @@ div.topic {
     height: 7vh;
     margin-left: 25%;
     width: 50%;
-    overflow: auto;
+    white-space: initial;
+
+}
+
+div.topic, div.topic a, .topic-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 div.topic a {
@@ -85,16 +92,15 @@ div#topic-info {
     border-bottom:1px solid black;
     margin-left: 25%;
     width: 50%;
-    overflow: auto;
     padding-left: 0.5%;
     font-size: 150%;
 }
 
 .topic-wrapper {
-    overflow: auto;
     float: left;
     padding: 1%;
     font-size: 150%;
+    word-break:break-all;
 }
 
 div#topic-info>div {
