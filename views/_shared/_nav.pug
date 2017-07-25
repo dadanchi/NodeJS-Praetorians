@@ -13,6 +13,11 @@ mixin nav()
             li
                 a(href=`/:users=${user.username}`)
                     =user.username
+            li
+                form(action='/topics/filtered' method="get")
+                    input#myInput(type='text', name='input' value='asd', placeholder='Search for topic..')
+                    button
+                        | Search
 
     else
         ul.nav.nav-tabs(role='tablist')
@@ -22,7 +27,11 @@ mixin nav()
             li
                 a(href='/topics')
                     | All Topics
-
             form(action="/auth/sign-in" method="get")
                 button.btn.btn-success#logout-btn
                     | Sign In
+            form(action='/topics/filtered' method="get")
+                input#myInput(type='text', name='input' value='asd', placeholder='Search for topic..')
+                button
+                    | Search
+

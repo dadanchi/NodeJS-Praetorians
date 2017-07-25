@@ -10,7 +10,7 @@ block body
             | Author
         div.comments-count-info
             | Comments
-    each topic in context
+    each topic in topics
         div.topic
             div.topic-wrapper.title-info
                 a(href=`/topics/:title=${topic.title}`)
