@@ -37,7 +37,11 @@ a:hover {
     font-size: 150%;
 }
 
+.container-filter{
+    float:right;
+    width: 15%;
 
+}
 #reg-form {
     width: 40%;
     padding: 2%;
