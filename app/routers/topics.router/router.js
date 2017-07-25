@@ -27,8 +27,8 @@ const attachTo = (app, data) => {
         })
 
         .get('/filtered', (req, res) => {
-            const input = req.query.input;
-            return data.topics.filterBy(input)
+            const searh = req.query.searh;
+            return data.topics.filterBy(searh)
                 .then((topics) => {
                     return res.render('topics/allFiltered', {
                         topics: topics,
