@@ -9,6 +9,9 @@ const attachTo = (app, data) => {
         .get('/:users', (req, res) => {
             return controller.showUserProfile(req, res);
         });
+        // .get('/posts', (res, req) => {
+        //     return controller.showUserPosts(res, req);
+        // });
     app.use('/', router);
 };
 module.exports = { attachTo };

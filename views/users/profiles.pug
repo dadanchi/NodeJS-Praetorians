@@ -1,4 +1,6 @@
 extends ../_shared/_master
+include ../_shared/_showPosts
+
 block body
         h1
                 | This is the profile of :
@@ -16,3 +18,6 @@ block body
                         li
                                 | Town :
                                 =context.town
+                        li
+                                | Posts :
+                                +showPosts()

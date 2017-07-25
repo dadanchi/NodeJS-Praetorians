@@ -140,6 +140,14 @@ div.title-info {
     margin-left: 4%;
 }
 
+.user-posts-wrapper{
+    display: none;
+}
+
+.post-topic{
+    padding-bottom: 10px;
+}
+
 div.description {
     border-bottom: 1px solid black;
     border-top: 1px solid black;

@@ -21,6 +21,8 @@ const init = (data) => {
     const staticsPath = path.join(__dirname, '../static');
     app.use('/static', express.static(staticsPath));
 
+    app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+
     return Promise.resolve(app);
 };
 
