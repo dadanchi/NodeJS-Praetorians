@@ -11,6 +11,9 @@ const attachTo = (app, data) => {
         })
         .post('/', (req, res) => {
             const topic = req.body;
+            // validation server side
+
+
             topic.author = req.user.username;
             topic.comments = [];
 
@@ -22,9 +25,21 @@ const attachTo = (app, data) => {
                     return res.redirect('/form');
                 });
         })
+
+        .get('/filtered', (req, res) => {
+            const input = req.query.input;
+            return data.topics.filterBy(input)
+                .then((topics) => {
+                    return res.render('topics/allFiltered', {
+                        topics: topics,
+                    });
+                });
+        })
         .get('/form', (req, res) => {
             return res.render('topics/form');
         })
+
+
         .get('/:title', (req, res) => {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
@@ -36,6 +51,9 @@ const attachTo = (app, data) => {
                 });
             // get the comments about the topic here
         })
+        // .get('/:page', (req, res) => {
+        //     return controller.getPages(req, res);
+        // })
         // TODO add a comment route
         .post('/:title/comments', (req, res) => {
             const removedString = ':title=';
@@ -52,12 +70,12 @@ const attachTo = (app, data) => {
             ])
                 .then(() => {
                     return res.redirect(`/topics/:title=${title}`);
-                })
-                // for debugging
-                .catch((err) => {
-                    console.log(err);
-                    return res.redirect(`/topics/:title=${title}`);
                 });
+            // for debugging
+            // .catch((err) => {
+            //     console.log(err);
+            //     return res.redirect(`/topics/:title=${title}`);
+            // });
         });
 
     app.use('/topics', router);

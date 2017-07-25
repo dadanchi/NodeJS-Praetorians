@@ -8,14 +8,28 @@ class TopicsData extends BaseData {
 
     _isModelValid(model) {
         // custom validation
+
+
         return super._isModelValid(model);
     }
+    getAllTopics() {
+        return this.collection
+            .find()
+            .limit(10)
+            .toArray();
+    }
+    // getPages(nPerPage, pageNumber) {
+    //     return this.collection.find()
+    //         .skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
+    //         .limit(nPerPage)
+    //         .toArray();
+    // }
 
     async addComment(comment) {
         const newTopic = await this.collection.findOne(
             {
                 title: comment.topic,
-        });
+            });
         const newComment = {
             content: comment.content,
             author: comment.author,
@@ -27,13 +41,19 @@ class TopicsData extends BaseData {
             {
                 title: comment.topic,
             },
-                newTopic
-            )
+            newTopic
+        )
             .then(() => {
                 return newComment;
             });
     }
-
+    filterBy(input) {
+        return this.collection.find(
+            {
+                title: { $regex: `${input}` },
+            })
+            .toArray();
+    }
     findByTitle(title) {
         return this
             .filterBy({ title: new RegExp(title, 'i') })

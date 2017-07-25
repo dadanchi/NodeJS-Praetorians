@@ -15,11 +15,16 @@ class BaseData {
     }
 
     getAll() {
-        return this.collection.find().limit(10)
+        return this.collection.find()
             .toArray();
     }
 
     create(model) {
+        // validation database
+        if (!this._isModelValid(model)) {
+            return Promise.reject('Validation failed!');
+        }
+
         return this.collection.insert(model)
             .then(() => {
                 return model;
@@ -30,6 +35,15 @@ class BaseData {
         return this.collection.findOne({
             _id: new ObjectID(id),
         });
+    }
+
+    _isModelValid(model) {
+        if ('undefined' === typeof this.validator ||
+            'function' !== typeof this.validator.isValid) {
+            return true;
+        }
+
+        return this.validator.isValid(model);
     }
 
     _getCollectionName() {
