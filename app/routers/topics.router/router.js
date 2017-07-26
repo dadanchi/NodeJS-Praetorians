@@ -17,6 +17,7 @@ const attachTo = (app, data) => {
                 content: topic.content,
                 author: req.user.username,
             };
+            delete topic.content;
             topic.comments = [];
             topic.comments.push(comment);
 
