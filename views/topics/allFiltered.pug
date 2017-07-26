@@ -16,7 +16,7 @@ block body
                 a(href=`/topics/:title=${topic.title}`)
                     =topic.title
             div.topic-wrapper.author-info
-                a(href=`/:users=${topic.author}`)
+                a(href=`users/:user=${topic.author}`)
                     =topic.author
             div.topic-wrapper.comments-count-info
                 span
