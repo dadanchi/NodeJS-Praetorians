@@ -140,6 +140,10 @@ div.title-info {
     width: 36%;
 }
 
+ .date-info {
+    padding-right: 10px;
+} 
+
 .topic-wrapper.comments-count-info{
     margin-left: 4%;
 }

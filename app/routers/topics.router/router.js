@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const Topic = require('../../../models/topic.model');
+const helper = require('../../../helpers/helpers');
 
 const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
@@ -16,6 +17,7 @@ const attachTo = (app, data) => {
             const comment = {
                 content: topic.content,
                 author: req.user.username,
+                date: helper.getDate(),
             };
             delete topic.content;
             topic.comments = [];
