@@ -2,19 +2,19 @@ extends ../_shared/_master
 block body
     h1
         = topic.title
-    div.description
-        = topic.content
-    if topic.comments
-        h3
-            ='Comments'
-        each comment in topic.comments
-            div.comment
-                = comment.content
-            div.author
-                span
-                    ='Written by '
-                a(href=`/:users=${comment.author}`)
-                    =comment.author
+    //- div.description
+    //-     = topic.content
+    //- if topic.comments
+    h3
+        ='Comments'
+    each comment in topic.comments
+        div.comment
+            = comment.content
+        div.author
+            span
+                ='Written by '
+            a(href=`/:users=${comment.author}`)
+                =comment.author
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
             textarea.form-control(name='comment' placeholder='Add a comment')

@@ -11,11 +11,14 @@ const attachTo = (app, data) => {
         })
         .post('/', (req, res) => {
             const topic = req.body;
-            // validation server side
-
-
             topic.author = req.user.username;
+            // validation server side
+            const comment = {
+                content: topic.content,
+                author: req.user.username,
+            };
             topic.comments = [];
+            topic.comments.push(comment);
 
             return data.topics.create(topic)
                 .then((top) => {
