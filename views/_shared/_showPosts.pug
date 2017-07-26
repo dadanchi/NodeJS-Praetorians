@@ -1,8 +1,10 @@
 mixin showPosts()
     script(src = '/static/js/showPosts.js')
     ul#posts-container
-        button.btn.btn-success#show-posts-btn
+        button.btn.btn-success#posts-show-btn
             | Show posts       
+        button.btn.btn-danger#posts-hide-btn
+            | Hide posts       
         each comment in context.comments
             div#user-posts-wrapper
                 div.post-topic

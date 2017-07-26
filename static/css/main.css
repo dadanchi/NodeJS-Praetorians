@@ -148,6 +148,14 @@ div.title-info {
     display: none;
 }
 
+#posts-hide-btn{
+    display: block;
+}
+
+#posts-hide-btn{
+    display: none;
+}
+
 .post-topic{
     padding-top: 10px;
 }
