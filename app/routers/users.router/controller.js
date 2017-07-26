@@ -4,7 +4,7 @@ const init = (data) => {
             const removedString = ':user=';
             const username = req.params.user.substr(removedString.length);
             return data.users.findByUserName(username)
-                .then((user) => {
+                .then((user, topic) => {
                     return res.render('users/profiles', {
                         context: user,
                     });

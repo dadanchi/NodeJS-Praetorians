@@ -1,5 +1,6 @@
 const BaseData = require('./base/base.data');
 const Topic = require('../models/topic.model');
+const date = new Date();
 
 class TopicsData extends BaseData {
     constructor(db) {
@@ -33,6 +34,8 @@ class TopicsData extends BaseData {
         const newComment = {
             content: comment.content,
             author: comment.author,
+            date: date.getDate() + ' ' + date.getMonth() + ' '
+                                       + date.getFullYear(),
         };
 
         newTopic.comments.push(newComment);
