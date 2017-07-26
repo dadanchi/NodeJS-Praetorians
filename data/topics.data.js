@@ -34,7 +34,9 @@ class TopicsData extends BaseData {
         const newComment = {
             content: comment.content,
             author: comment.author,
-            date: date.getDate() + ' ' + date.getMonth() + ' '
+            date: date.getHours() + 'hrs ' + date.getMinutes() + 'mins '
+                                        + date.getDate() + ' '
+                                       + date.getMonth() + ' '
                                        + date.getFullYear(),
         };
 

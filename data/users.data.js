@@ -21,7 +21,10 @@ class UsersData extends BaseData {
         const newComment = {
             content: comment.content,
             topic: comment.topic,
-            date: date.getDate() + ' ' + date.getMonth() + ' ' + date.getFullYear(),
+            date: date.getHours() + 'hrs ' + date.getMinutes() + 'mins '
+                                        + date.getDate() + ' '
+                                       + date.getMonth() + ' '
+                                       + date.getFullYear(),
         };
 
         newUser.comments.push(newComment);
