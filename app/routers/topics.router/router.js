@@ -28,7 +28,7 @@ const attachTo = (app, data) => {
 
         .get('/filtered', (req, res) => {
             const searh = req.query.searh;
-            return data.topics.filterBy(searh)
+            return data.topics.findBy(searh)
                 .then((topics) => {
                     return res.render('topics/allFiltered', {
                         topics: topics,

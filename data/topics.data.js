@@ -47,7 +47,7 @@ class TopicsData extends BaseData {
                 return newComment;
             });
     }
-    filterBy(input) {
+    findBy(input) {
         return this.collection.find(
             {
                 title: { $regex: `${input}` },
