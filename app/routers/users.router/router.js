@@ -6,7 +6,10 @@ const attachTo = (app, data) => {
 
     router
         .get('/:user', (req, res) => {
-            return controller.showUserProfile(req, res);
+            if (req.user) {
+                return controller.showUserProfile(req, res);
+            }
+            return res.redirect('/topics');
         });
     app.use('/users', router);
 };

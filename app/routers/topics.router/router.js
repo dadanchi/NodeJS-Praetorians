@@ -40,7 +40,10 @@ const attachTo = (app, data) => {
                 });
         })
         .get('/form', (req, res) => {
-            return res.render('topics/form');
+            if (req.user) {
+                return res.render('topics/form');
+            }
+            return res.redirect('/topics');
         })
 
 
