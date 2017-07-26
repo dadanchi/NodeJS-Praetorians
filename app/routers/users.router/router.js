@@ -10,7 +10,7 @@ const attachTo = (app, data) => {
                 return controller.showUserProfile(req, res);
             }
             // expect todo --> popup message
-            return res.redirect('/topics');
+            return res.redirect('/auth/sign-in');
         });
     app.use('/users', router);
 };
