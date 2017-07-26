@@ -10,17 +10,6 @@ const init = (data) => {
                     });
                 });
         },
-
-        // showUserPosts(res, req) {
-        //     const removedString = ':users=';
-        //     const username = req.params.users.substr(removedString.length);
-        //     return data.users.findByUserName(username)
-        //         .then((user) => {
-        //             return res.render('users/posts', {
-        //                 context: user,
-        //             });
-        //         });
-        // },
     };
 
     return controller;

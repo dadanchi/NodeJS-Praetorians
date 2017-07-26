@@ -15,13 +15,11 @@ const init = (data) => {
     require('./routers')
         .attachTo(app, data);
 
-    const libsPath = path.join(__dirname, '../node_modules/');
+    const libsPath = path.join(__dirname, '../node_modules');
     app.use('/libs', express.static(libsPath));
 
     const staticsPath = path.join(__dirname, '../static');
     app.use('/static', express.static(staticsPath));
-
-    app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
     return Promise.resolve(app);
 };

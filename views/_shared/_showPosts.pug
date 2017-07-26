@@ -1,13 +1,14 @@
 mixin showPosts()
-    script(src='/static/js/showPosts.js')
+    script(src = '/static/js/showPosts.js')
     ul
         button.btn.btn-success#show-posts-btn
-            | Show posts
+            | Show posts       
         each comment in context.comments
-            div.user-posts-wrapper
-                div.post-topic      
+            div#user-posts-wrapper
+                div.post-topic
                 | Topic : 
                 =comment.topic
                 div.post-content
                 | Post:      
                 =comment.content
+    
