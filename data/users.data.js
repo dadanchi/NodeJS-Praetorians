@@ -8,7 +8,7 @@ class UsersData extends BaseData {
 
     findByUserName(username) {
         return this
-                .filterBy({ username: new RegExp(username, 'i') })
+                .filterBy({ username: username })
                 .then(([user]) => user);
     }
 
