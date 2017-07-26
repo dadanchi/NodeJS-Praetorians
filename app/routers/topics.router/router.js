@@ -43,6 +43,7 @@ const attachTo = (app, data) => {
             if (req.user) {
                 return res.render('topics/form');
             }
+            // expect todo --> popup message
             return res.redirect('/topics');
         })
 

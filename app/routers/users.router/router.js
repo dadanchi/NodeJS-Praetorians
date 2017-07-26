@@ -9,6 +9,7 @@ const attachTo = (app, data) => {
             if (req.user) {
                 return controller.showUserProfile(req, res);
             }
+            // expect todo --> popup message
             return res.redirect('/topics');
         });
     app.use('/users', router);
