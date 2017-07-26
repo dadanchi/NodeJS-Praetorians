@@ -13,7 +13,7 @@ block body
         div.author
             span
                 ='Written by '
-            a(href=`users/:user=${topic.author}`)
+            a(href=`/users/:user=${comment.author}`)
                 =comment.author
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
