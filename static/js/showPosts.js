@@ -1,7 +1,7 @@
 $(function () {
-    const el = $('#user-posts-wrapper');
     const btn = $('#show-posts-btn');
+    const postUl = $('#posts-container');
     btn.on('click', () => {
-        el.css('display', 'block');
+        postUl.children().css('display', 'block');
     });
 });
