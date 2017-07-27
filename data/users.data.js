@@ -9,8 +9,8 @@ class UsersData extends BaseData {
 
     findByUserName(username) {
         return this
-                .filterBy({ username: username })
-                .then(([user]) => user);
+            .filterBy({ username: username })
+            .then(([user]) => user);
     }
 
     async addComment(comment) {
@@ -19,9 +19,10 @@ class UsersData extends BaseData {
                 username: comment.author,
             });
         const newComment = {
-            content: comment.content,
             topic: comment.topic,
-            date: helper.getDate(),
+            content: comment.content,
+            author: comment.author,
+            _id: comment._id,
         };
 
         newUser.comments.push(newComment);
@@ -30,11 +31,11 @@ class UsersData extends BaseData {
             {
                 username: comment.author,
             },
-                newUser
+            newUser
         )
-        .then(() => {
-            return newUser;
-        });
+            .then(() => {
+                return newUser;
+            });
     }
 
     checkPassword(username, password) {

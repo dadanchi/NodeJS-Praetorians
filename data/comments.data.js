@@ -12,6 +12,16 @@ class CommentsData extends BaseData {
             })
             .toArray();
     }
+    // createComment(input) {
+    //     const comment = {
+    //         topic: input.topic,
+    //         topicId: input.id,
+    //         content: input.comment,
+    //         author: input.username,
+    //         authorId: input._id,
+    //         date: input.date,
+    //     };
+    // }
     // update(input) {
     // }
     _isModelValid(model) {

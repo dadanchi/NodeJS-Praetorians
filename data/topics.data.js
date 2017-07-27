@@ -12,7 +12,7 @@ class TopicsData extends BaseData {
 
         return super._isModelValid(model);
     }
-        getAllTopics() {
+    getAllTopics() {
         return this.collection
             .find()
             .toArray()
@@ -26,10 +26,14 @@ class TopicsData extends BaseData {
             {
                 title: comment.topic,
             });
+
         const newComment = {
+            topic: comment.topic,
             content: comment.content,
             author: comment.author,
-            date: helper.getDate(),
+            authorId: comment.authorId,
+            date: comment.date,
+            _id: comment._id,
         };
 
         newTopic.comments.push(newComment);
