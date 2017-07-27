@@ -82,7 +82,10 @@ const init = (data) => {
                     return res.render('topics/comments', {
                         topic: topic,
                     });
-                });
+                })
+                .catch((err) => {
+                    return res.render('error');
+            });
         },
 
         addComment(req, res) {

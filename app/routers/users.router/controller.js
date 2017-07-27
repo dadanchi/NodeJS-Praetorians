@@ -5,6 +5,9 @@ const init = (data) => {
             const username = req.params.user.substr(removedString.length);
             return data.users.findByUserName(username)
                 .then((user, topic) => {
+                    if (typeof(user) === 'undefined') {
+                        return res.render('error');
+                    }
                     return res.render('users/profiles', {
                         context: user,
                     });

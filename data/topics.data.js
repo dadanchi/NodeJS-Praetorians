@@ -51,13 +51,13 @@ class TopicsData extends BaseData {
     findBy(input) {
         return this.collection.find(
             {
-                title: { $regex: `${input}` },
+                title: input,
             })
             .toArray();
     }
     findByTitle(title) {
         return this
-            .filterBy({ title: new RegExp(title, 'i') })
+            .filterBy({ title: title })
             .then(([topic]) => topic);
     }
 }
