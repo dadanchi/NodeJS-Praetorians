@@ -8,10 +8,11 @@ const init = (data) => {
             const size = 8;
             return data.topics.getAllTopics()
                 .then((topics) => {
-                    // catch error
-                    const croppedPart = page * size;
-                    if (croppedPart > topics.length) {
-                        page = 1;
+                    let croppedPart = (page - 1) * size;
+                    // if route of page is too big
+                    while (croppedPart >= topics.length) {
+                        page-= 1;
+                        croppedPart = (page - 1) * size;
                     }
                     topics = topics.slice((page - 1) * size, page * size);
                     return res.render('topics/all', {

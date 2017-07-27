@@ -1,4 +1,6 @@
 extends ../_shared/_master
+include ../_shared/_pageChange
+
 block body
 
     h1
@@ -26,6 +28,7 @@ block body
             div.topic-wrapper.comments-count-info
                 span
                     =topic.comments.length
+    +page()
     if user
         div#post-topic-btn
             form(action="/topics/form" method="get")

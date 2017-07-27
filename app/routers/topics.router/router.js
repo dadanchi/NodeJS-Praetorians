@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const Topic = require('../../../models/topic.model');
 
 const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
