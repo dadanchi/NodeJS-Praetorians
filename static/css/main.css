@@ -216,7 +216,7 @@ img#profile-pic {
 }
 
 #profile-name {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif
 }
 
 div#user-posts {
@@ -232,8 +232,14 @@ div#user-posts {
     float: left;
 }
 
-.post {
+.post-comment, .post-topic {
     height: 2em;
     line-height: 1;
     overflow: hidden;
+    
+}
+
+.post-topic {
+    border-top: 1px solid black;
+    margin-top: 2%;
 }

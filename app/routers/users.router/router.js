@@ -6,11 +6,9 @@ const attachTo = (app, data) => {
 
     router
         .get('/:user', (req, res) => {
-            if (req.user) {
+
                 return controller.showUserProfile(req, res);
-            }
             // expect todo --> popup message
-            return res.redirect('/auth/sign-in');
         });
     app.use('/users', router);
 };

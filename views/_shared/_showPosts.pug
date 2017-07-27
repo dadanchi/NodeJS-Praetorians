@@ -3,10 +3,10 @@ mixin showPosts()
     div#posts-container
         each comment in context.comments
             div#user-posts-wrapper
-                div.post
+                div.post.post-topic
                     | Topic : 
                     =comment.topic
-                div.post
+                div.post.post-comment
                     | Post :      
                     =comment.content
                 div.post
