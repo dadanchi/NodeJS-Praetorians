@@ -1,5 +1,6 @@
 const UsersData = require('./users.data');
 const TopicsData = require('./topics.data');
+const CommentsData = require('./comments.data');
 
 const init = (db) => {
     return Promise.resolve({
@@ -7,6 +8,7 @@ const init = (db) => {
         // comments
         users: new UsersData(db),
         topics: new TopicsData(db),
+        comments: new CommentsData(db),
     });
 };
 
