@@ -28,19 +28,24 @@ const init = (data) => {
             const comment = {
                 content: topic.content,
                 author: req.user.username,
+                topic: topic.title,
                 date: helper.getDate(),
             };
             delete topic.content;
             topic.comments = [];
             topic.comments.push(comment);
 
-            return data.topics.create(topic)
-                .then((top) => {
-                    return res.redirect('/topics');
-                })
-                .catch((err) => {
-                    return res.redirect('/form');
-                });
+            return Promise.all([
+                data.topics.create(topic),
+                data.users.addComment(comment),
+            ])
+            .then((top) => {
+                return res.redirect('/topics');
+            })
+            .catch((err) => {
+                // TODO get error messega
+                return res.render('./topics/form');
+            });
         },
 
         searchTopic(req, res) {
