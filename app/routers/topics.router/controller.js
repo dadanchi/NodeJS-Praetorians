@@ -43,8 +43,7 @@ const init = (data) => {
                 return res.redirect('/topics');
             })
             .catch((err) => {
-                // TODO get error messega
-                return res.render('./topics/form');
+                return res.render('error');
             });
         },
 
@@ -78,7 +77,10 @@ const init = (data) => {
                     return res.render('topics/comments', {
                         topic: topic,
                     });
-                });
+                })
+                .catch((err) => {
+                    return res.render('error');
+            });
         },
 
         addComment(req, res) {
