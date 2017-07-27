@@ -3,21 +3,32 @@ include ../_shared/_showPosts
 
 block body
     h1
-        | This is the profile of :
-    h3
-        ul
-            li
-                    | Username: 
-                    =context.username
-            li
-                    | First name: 
-                    =context.firstname
-            li
-                    | Last name: 
-                    =context.lastname
-            li
-                    | Town: 
-                    =context.town
-            li
-                    | Posts: 
-                    +showPosts()
+        ='The profile of '
+        span#profile-name
+            =context.username
+    div#user-info
+        div#profile-image
+            img#profile-pic(src='/static/css/images/default-profile.jpg')
+        div#profile-info
+            h3
+                | About me
+            h4
+                ul
+                    li
+                        | First name: 
+                        =context.firstname
+                    li
+                        | Last name: 
+                        =context.lastname
+                    li
+                        | Town: 
+                        =context.town
+                    li
+                        | Register Date: 
+
+    div#user-posts
+        button.btn.btn-success#posts-show-btn
+            | Show posts       
+        button.btn.btn-danger#posts-hide-btn
+            | Hide posts       
+        +showPosts()

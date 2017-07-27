@@ -7,7 +7,7 @@ html, body {
 h1 {
     text-align: center;
 }
-a{
+a {
     color: black !important;
 }
 
@@ -86,7 +86,8 @@ textarea {
 }
 
 ul {
-  list-style-type: none;
+    padding: 0;
+    list-style-type: none;
 }
 
 .container{
@@ -101,7 +102,7 @@ div.topic {
 
 }
 
-div.author, .container, div#topic-info, div.topic, div.topic a, .topic-wrapper:after {
+#posts-container, div#user-info, div.author, .container, div#topic-info, div.topic, div.topic a, .topic-wrapper:after {
   content: "";
   display: table;
   clear: both;
@@ -182,4 +183,57 @@ div.author {
     width: 100%;
     margin-bottom: 1%;
     border-bottom: 1px solid black;
+}
+
+div#profile-image {
+    border: 1px solid black;
+    width: 20%;
+    float: left;
+}
+
+div#user-info {
+    width: 100%;
+}
+
+div#profile-info {
+    float: left;
+    border: 1px solid black;
+    margin-left: 2%;
+    width: 70%;
+    height: 40vh;
+    padding-left: 5%;
+    padding-top: 2%;
+        overflow: auto;
+}
+
+div#profile-info ul li {
+    padding-top: 2%;
+}
+
+img#profile-pic {
+    width: 100%;
+    height: 40vh;
+}
+
+#profile-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+div#user-posts {
+    margin-left: 22%;
+}
+
+#posts-container {
+    width: 100%;
+    word-break:break-all;
+}
+
+#posts-show-btn, #posts-hide-btn {
+    float: left;
+}
+
+.post {
+    height: 2em;
+    line-height: 1;
+    overflow: hidden;
 }

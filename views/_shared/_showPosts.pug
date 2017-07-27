@@ -1,18 +1,14 @@
 mixin showPosts()
     script(src = '/static/js/showPosts.js')
-    ul#posts-container
-        button.btn.btn-success#posts-show-btn
-            | Show posts       
-        button.btn.btn-danger#posts-hide-btn
-            | Hide posts       
+    div#posts-container
         each comment in context.comments
             div#user-posts-wrapper
-                div.post-topic
+                div.post
                     | Topic : 
                     =comment.topic
-                div.post-content
+                div.post
                     | Post :      
                     =comment.content
-                div.date-row
+                div.post
                     | Date :
                     =comment.date
