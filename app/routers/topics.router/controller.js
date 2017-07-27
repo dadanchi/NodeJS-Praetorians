@@ -56,12 +56,17 @@ const init = (data) => {
         getCurrentTopic(req, res) {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
-            const page = req.query.page || 1;
+            let page = req.query.page || 1;
             const size = 8;
             return data.topics.findByTitle(title)
                 .then((topic) => {
                     if (topic.comments.length !== 0) {
-                        // catch error
+                    let croppedPart = (page - 1) * size;
+                    // if route of page is too big
+                    while (croppedPart >= topic.comments.length) {
+                        page-= 1;
+                        croppedPart = (page - 1) * size;
+                    }
                         topic.comments =
                             topic.comments.slice((page-1) * size, page * size);
                     }

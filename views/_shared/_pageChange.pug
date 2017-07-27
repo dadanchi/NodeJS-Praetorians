@@ -1,6 +1,6 @@
-mixin page()
+mixin page(itemsCount)
     button#prev-page-btn.btn.btn-success
         ='Previous'
     button#next-page-btn.btn.btn-success
         ='Next'
-    script(src='../static/js/pageButton.js')
+    script(src='../static/js/pageButton.js' pages=itemsCount)

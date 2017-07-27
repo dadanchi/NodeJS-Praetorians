@@ -28,7 +28,7 @@ block body
             div.topic-wrapper.comments-count-info
                 span
                     =topic.comments.length
-    +page()
+    +page(context.length)
     if user
         div#post-topic-btn
             form(action="/topics/form" method="get")

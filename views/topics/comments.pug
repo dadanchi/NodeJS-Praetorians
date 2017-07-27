@@ -19,7 +19,7 @@ block body
                 =comment.author
             p.date-row
                 =comment.date
-    +page()
+    +page(topic.comments.length)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
             textarea.form-control(name='comment' placeholder='Add a comment')
