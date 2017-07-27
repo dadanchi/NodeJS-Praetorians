@@ -10,21 +10,16 @@ class TopicsData extends BaseData {
     _isModelValid(model) {
         // custom validation
 
-
         return super._isModelValid(model);
     }
-    getAllTopics() {
+        getAllTopics() {
         return this.collection
             .find()
-            .limit(10)
-            .toArray();
+            .toArray()
+            .then((x) => {
+                return x.reverse();
+            });
     }
-    // getPages(nPerPage, pageNumber) {
-    //     return this.collection.find()
-    //         .skip(pageNumber > 0 ? ((pageNumber - 1) * nPerPage) : 0)
-    //         .limit(nPerPage)
-    //         .toArray();
-    // }
 
     async addComment(comment) {
         const newTopic = await this.collection.findOne(

@@ -1,4 +1,5 @@
 extends ../_shared/_master
+include ../_shared/_pageChange
 
 block body
     h1
@@ -18,6 +19,7 @@ block body
                 =comment.author
             p.date-row
                 =comment.date
+    +page()
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
             textarea.form-control(name='comment' placeholder='Add a comment')

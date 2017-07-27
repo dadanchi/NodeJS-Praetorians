@@ -53,8 +53,14 @@ const attachTo = (app, data) => {
         .get('/:title', (req, res) => {
             const removedString = ':title=';
             const title = req.params.title.substr(removedString.length);
+            const page = req.query.page || 1;
+            const size = 2;
             return data.topics.findByTitle(title)
                 .then((topic) => {
+                    if (topic.comments.length !== 0) {
+                        // catch error
+                        topic.comments = topic.comments.slice((page-1) * size, page * size);
+                    }
                     return res.render('topics/comments', {
                         topic: topic,
                     });
