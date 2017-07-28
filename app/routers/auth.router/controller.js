@@ -1,5 +1,4 @@
 const passport = require('passport');
-const bcrypt = require('bcrypt');
 
 class UsersController {
     constructor(data) {
@@ -20,26 +19,18 @@ class UsersController {
     signUp(req, res) {
         const bodyUser = req.body;
         bodyUser.comments = [];
-        const userData = this.data;
-
-        bcrypt.hash(req.body.password, 10, function(err, hash) {
-            bodyUser.password = hash;
-            if (err) {
-                throw new Error('Error');
-            }
-            return userData.users.findByUserName(bodyUser.username)
+        return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
                     throw new Error('User already exists');
                 }
-                return userData.users.create(bodyUser)
+                return this.data.users.create(bodyUser)
                     .then((x) => {
                         passport.authenticate('local')(req, res, () => {
                             res.redirect('/');
                         });
                     });
             });
-        });
     }
 
     signIn(req, res) {

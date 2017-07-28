@@ -1,6 +1,5 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
-const bcrypt = require('bcrypt');
 const notifier = require('node-notifier');
 
 class UsersData extends BaseData {
@@ -23,6 +22,7 @@ class UsersData extends BaseData {
             topic: comment.topic,
             content: comment.content,
             author: comment.author,
+            date: comment.date,
             _id: comment._id,
         };
 
@@ -43,15 +43,14 @@ class UsersData extends BaseData {
         return this.findByUserName(username)
             .then((user) => {
                 if (!user) {
+                    notifier.notify('Invalid user');
                     throw new Error('Invalid user');
                 }
-                bcrypt.compare(password, user.password, function(err, match) {
-                    if (!match) {
-                        notifier.notify('Invalid password');
-                        throw new Error('Invalid password');
-                    }
-                });
-                // return true;
+                if (user.password !== password) {
+                    notifier.notify('Invalid password');
+                    throw new Error('Invalid password');
+                }
+             return true;
             });
     }
 }
