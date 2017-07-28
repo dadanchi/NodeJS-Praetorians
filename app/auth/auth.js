@@ -15,7 +15,7 @@ const applyTo = (app, data) => {
                 done(null, user);
             })
             .catch((err) => {
-                done(err);
+                done(null, false);
             });
     }));
 
@@ -37,7 +37,7 @@ const applyTo = (app, data) => {
         data.users.findById(id)
             .then((user) => {
                 done(null, user);
-            }).catch(done);
+            }).catch(null, false);
     });
 
     app.use((req, res, next) => {

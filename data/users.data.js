@@ -1,5 +1,6 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
+const notifier = require('node-notifier');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -41,9 +42,11 @@ class UsersData extends BaseData {
         return this.findByUserName(username)
             .then((user) => {
                 if (!user) {
+                    notifier.notify('Invalid user');
                     throw new Error('Invalid user');
                 }
                 if (user.password !== password) {
+                    notifier.notify('Invalid password');
                     throw new Error('Invalid password');
                 }
              return true;
