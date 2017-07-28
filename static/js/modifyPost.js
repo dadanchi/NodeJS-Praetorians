@@ -1,20 +1,18 @@
 
 $(() => {
-    const cell = document.querySelectorAll('.form-modify');
+    const cell = document.querySelectorAll('.modify-conteiner');
     for (let i = 0; i < cell.length; i++) {
         cell[i].addEventListener('click', callback, false);
     }
     function callback() {
         const $this = $(this);
-        $this.children('.modify-btn').on('click', function() {
-            $this.children('.modify-btn').css('display', 'none');
-            $this.children('.confirm-btn').css('display', 'block');
-            $this.children('.modify-text').css('display', 'block');
+        $this.find('.modify-btn').on('click', function() {
+            $this.find('.modify-btn').css('display', 'none');
+            $this.find('.modify-form').css('display', 'block');
         });
-        $this.children('.confirm-btn').on('click', function() {
-            $this.children('.modify-btn').css('display', 'block');
-            $this.children('.confirm-btn').css('display', 'none');
-            $this.children('.modify-text').css('display', 'none');
+        $this.find('.confirm-btn').on('click', function() {
+            $this.find('.modify-btn').css('display', 'block');
+            $this.find('.modify-form').css('display', 'none');
         });
     }
 });

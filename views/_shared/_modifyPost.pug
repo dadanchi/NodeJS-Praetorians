@@ -1,11 +1,13 @@
-mixin modifyPost()
+mixin modifyPost(topicTitle, id, commContent)
     script(src = '/static/js/modifyPost.js')
-    form.form-modify(action=`#` method="")
-        .modify-text
-            textarea.form-control(rows=3  name="content" placeholder="Modify comment")
+    .modify-conteiner
+        .modify-form
+            form.form-horizontal(action=`/topics/:title=${topicTitle}/:comment=${id}/edit` method="post")
+                textarea.form-control(rows=3  name="content" )| #{commContent}
+                br
+                button.confirm-btn.btn.btn-info
+                        | Confirm
         .modify-btn
             button.btn.btn-info
                 | Modify
-        .confirm-btn
-            button.btn.btn-info
-                | Confirm
+

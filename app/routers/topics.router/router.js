@@ -26,6 +26,9 @@ const attachTo = (app, data) => {
         })
         .post('/:title/comments', (req, res) => {
             return controller.addComment(req, res);
+        })
+        .post('/:title/:commentId/edit', (req, res) => {
+            return controller.edit(req, res);
         });
 
     app.use('/topics', router);

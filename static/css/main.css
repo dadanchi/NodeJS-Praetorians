@@ -255,10 +255,17 @@ div#user-posts-wrapper {
 .modify-text{
     display: none;
 
+
 }
 
-.confirm-btn{
+.modify-form{
+    min-width: 100%;
      display: none;
+     float:left;
+
+}
+.modify-btn{
+     float:left;
 
 }
 

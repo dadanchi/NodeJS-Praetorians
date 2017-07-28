@@ -22,7 +22,7 @@ block body
                 =comment.author
             p.date-row
                 =comment.date
-            +modifyPost()
+            +modifyPost(topic.title, comment._id, comment.content)
     +page(topic.comments.length)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
