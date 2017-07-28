@@ -1,0 +1,9 @@
+mixin modifyPost()
+    block content
+    script(src = '/static/js/modifyPost.js')
+    form#form-modify(action=`#` method=""   )
+        textarea#modify-text.form-control(rows=3  name="content" placeholder="Modify comment")
+        button#modify-btn.btn.btn-info
+            | Modify
+        button#confirm-btn.btn.btn-info
+            | Confirm
