@@ -1,6 +1,7 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
 const notifier = require('node-notifier');
+const { ObjectID } = require('mongodb');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -39,6 +40,20 @@ class UsersData extends BaseData {
             });
     }
 
+    async updateProfil(updatedData, oldData) {
+        return this.collection.update(
+            { _id: oldData._id },
+            {
+                $set: {
+                    password: updatedData.password,
+                    firstname: updatedData.firstname,
+                    lastname: updatedData.lastname,
+                    town: updatedData.town,
+                },
+            }
+        );
+    }
+
     checkPassword(username, password) {
         return this.findByUserName(username)
             .then((user) => {
@@ -50,7 +65,7 @@ class UsersData extends BaseData {
                     notifier.notify('Invalid password');
                     throw new Error('Invalid password');
                 }
-             return true;
+                return true;
             });
     }
 }

@@ -9,6 +9,12 @@ const attachTo = (app, data) => {
 
                 return controller.showUserProfile(req, res);
             // expect todo --> popup message
+        })
+        .get('/:user/updateProfil', (req, res) => {
+            return controller.getUpdateProfilPage(req, res);
+        })
+        .post('/:user', (req, res) => {
+            return controller.updateProfilInfo(req, res);
         });
     app.use('/users', router);
 };

@@ -1,0 +1,19 @@
+extends ../_shared/_master
+block body
+    div#update-form
+        form(action=`/users/:user=${context.username}`, method="POST")
+            ul
+                li
+                    | Change password
+                    input.form-control(type="password" name="password" placeholder="Enter new password")
+                li
+                    | Add / Change First name
+                    input.form-control(type="text" name="firstname" placeholder="Enter first name")
+                li
+                    | Add / Change Last name        
+                    input.form-control(type="text" name="lastname" placeholder="Enter last name")
+                li
+                    | Add / Change town        
+                    input.form-control(type="text" name="town" placeholder="Enter town")
+                    button.btn.btn-success#btn-update
+                        | Update

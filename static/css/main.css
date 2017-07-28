@@ -37,6 +37,10 @@ a:hover {
     font-size: 150%;
 }
 
+#btn-update-profile{
+    margin-top: 2%;
+}
+
 .container-filter{
     float:right;
     width: 15%;
@@ -255,17 +259,10 @@ div#user-posts-wrapper {
 .modify-text{
     display: none;
 
-
 }
 
-.modify-form{
-    min-width: 100%;
+.confirm-btn{
      display: none;
-     float:left;
-
-}
-.modify-btn{
-     float:left;
 
 }
 
