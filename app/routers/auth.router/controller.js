@@ -19,18 +19,24 @@ class UsersController {
 
     signUp(req, res) {
         const bodyUser = req.body;
-        const pass = bodyUser.password;
-        bodyUser.password = bcrypt.hashSync(pass, 10);
         bodyUser.comments = [];
-        return this.data.users.findByUserName(bodyUser.username)
+        const userData = this.data;
+
+        bcrypt.hash(req.body.password, 10, function(err, hash) {
+            bodyUser.password = hash;
+            if (err) {
+                throw new Error('Error');
+            }
+            return userData.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
                     throw new Error('User already exists');
                 }
-                return this.data.users.create(bodyUser)
+                return userData.users.create(bodyUser)
                     .then((x) => {
                         passport.authenticate('local')(req, res, () => {
-                        res.redirect('/');
+                            res.redirect('/');
+                        });
                     });
             });
         });
