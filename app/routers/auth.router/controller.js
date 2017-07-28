@@ -1,4 +1,5 @@
 const passport = require('passport');
+const { encryptor } = require('../../../helpers/helpers');
 
 class UsersController {
     constructor(data) {
@@ -19,6 +20,7 @@ class UsersController {
     signUp(req, res) {
         const bodyUser = req.body;
         bodyUser.comments = [];
+        bodyUser.password = encryptor.encrypt(bodyUser.password);
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
@@ -34,9 +36,17 @@ class UsersController {
     }
 
     signIn(req, res) {
-        return passport.authenticate('local', {
-            successRedirect: '/',
-            failureRedirect: '/auth/sign-in',
+        return new Promise(() => {
+            const bodyUser = req.body;
+            bodyUser.password = encryptor.encrypt(bodyUser.password);
+            passport.authenticate('local',
+                { failureRedirect: '/auth/sign-in' })(req, res, () => {
+                    if (res.status(200)) {
+                        return res.redirect('/');
+                    }
+
+                    return res.redirect('/auth/sign-in');
+                });
         });
     }
 }

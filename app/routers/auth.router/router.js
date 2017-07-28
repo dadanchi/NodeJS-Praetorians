@@ -8,7 +8,7 @@ const attachTo = (app, data) => {
         .get('/sign-in', (req, res) => {
             return res.render('auth/loginForm');
         })
-        .post('/sign-in', controller.signIn())
+        .post('/sign-in', (req, res) => controller.signIn(req, res))
         .get('/sign-up', (req, res) => {
             res.render('auth/regForm');
         })

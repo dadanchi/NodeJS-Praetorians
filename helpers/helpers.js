@@ -6,4 +6,22 @@ const getDate = () => {
                                        + date.getFullYear();
 };
 
-module.exports = { getDate };
+const encryptor =
+    {
+    encrypt: (password) => {
+            let encryptedPassword = '';
+            for (let i = 0; i < password.length; i+=1) {
+                encryptedPassword += String.fromCharCode(
+                    password.charCodeAt(i) + 14) + String.fromCharCode(
+                    password.charCodeAt(i) + 3);
+            }
+
+            return encryptedPassword;
+        },
+    };
+
+module.exports = {
+    getDate,
+    encryptor,
+};
+
