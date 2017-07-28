@@ -265,4 +265,11 @@ div#user-posts-wrapper {
      display: none;
 
 }
-
+.modify-form{
+    min-width: 100%;
+     display: none;
+     float:left;
+}
+.modify-btn{
+    float:left;
+}
