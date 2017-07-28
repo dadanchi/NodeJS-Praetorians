@@ -61,7 +61,7 @@ class TopicsData extends BaseData {
     findBy(input) {
         return this.collection.find(
             {
-                title: input,
+                title: { $regex: `.*${input}.*` },
             })
             .toArray();
     }
