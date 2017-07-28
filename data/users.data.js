@@ -22,6 +22,7 @@ class UsersData extends BaseData {
             topic: comment.topic,
             content: comment.content,
             author: comment.author,
+            date: comment.date,
             _id: comment._id,
         };
 
