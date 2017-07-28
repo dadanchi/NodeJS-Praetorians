@@ -203,7 +203,6 @@ div#profile-info {
     height: 40vh;
     padding-left: 5%;
     padding-top: 2%;
-        overflow: auto;
 }
 
 div#profile-info ul li {
@@ -228,18 +227,28 @@ div#user-posts {
     word-break:break-all;
 }
 
+div#posts-container div#user-posts-wrapper:nth-child(2n + 1) {
+    background: #008000;
+    color: white;
+}
+
+div#posts-container div#user-posts-wrapper:first-child {
+    margin-top: 2%;
+}
+
+div#user-posts-wrapper {
+    padding-bottom: 1%;
+    padding-left: 1%;
+}
+
 #posts-show-btn, #posts-hide-btn {
     float: left;
+    margin-top: 2%;
 }
 
-.post-comment, .post-topic {
-    height: 2em;
-    line-height: 1;
+.post-comment {
+    height: 2.2em; 
+    line-height: 1.1;
     overflow: hidden;
     
-}
-
-.post-topic {
-    border-top: 1px solid black;
-    margin-top: 2%;
 }
