@@ -1,7 +1,9 @@
 extends ../_shared/_master
 include ../_shared/_pageChange
+include ../_shared/_modifyPost
 
 block body
+
     h1
         = topic.title
     //- div.description
@@ -10,6 +12,7 @@ block body
     h3
         ='Comments'
     each comment in topic.comments
+
         div.comment
             = comment.content
         div.author
@@ -19,6 +22,7 @@ block body
                 =comment.author
             p.date-row
                 =comment.date
+            +modifyPost()
     +page(topic.comments.length)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
