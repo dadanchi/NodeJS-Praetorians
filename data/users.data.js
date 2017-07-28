@@ -1,6 +1,6 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
-const helper = require('../helpers/helpers');
+const bcrypt = require('bcrypt');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -45,8 +45,8 @@ class UsersData extends BaseData {
                     throw new Error('Invalid user');
                 }
 
-                if (user.password !== password) {
-                    throw new Error('Invalid password');
+                if (!(bcrypt.compareSync(password, user.password))) {
+                    throw new Error('Invalid password ! Try again.');
                 }
 
                 return true;

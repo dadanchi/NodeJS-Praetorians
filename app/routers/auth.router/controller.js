@@ -1,4 +1,5 @@
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 
 class UsersController {
     constructor(data) {
@@ -18,6 +19,8 @@ class UsersController {
 
     signUp(req, res) {
         const bodyUser = req.body;
+        const pass = bodyUser.password;
+        bodyUser.password = bcrypt.hashSync(pass, 10);
         bodyUser.comments = [];
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
