@@ -6,9 +6,9 @@ block body
 
     h1
         = topic.title
-    //- div.description
-    //-     = topic.content
-    //- if topic.comments
+    div.description
+        = topic.content
+    if topic.comments
     h3
         ='Comments'
     each comment in topic.comments

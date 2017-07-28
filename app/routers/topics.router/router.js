@@ -5,9 +5,6 @@ const attachTo = (app, data) => {
     const router = new Router();
 
     router
-        .get('/update', (req, res)=>{
-            return res.render('topics/update');
-        })
         .get('/', (req, res) => {
             return controller.getAll(req, res);
         })
