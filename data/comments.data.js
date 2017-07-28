@@ -1,7 +1,6 @@
-/* eslint quotes: ["error", "double", { "allowTemplateLiterals": true }]*/
-const BaseData = require("./base/base.data");
-const Comment = require("../models/comment.model");
-const { ObjectID } = require("mongodb");
+const BaseData = require('./base/base.data');
+const Comment = require('../models/comment.model');
+const { ObjectID } = require('mongodb');
 class CommentsData extends BaseData {
     constructor(db) {
         super(db, Comment, Comment);
@@ -26,14 +25,14 @@ class CommentsData extends BaseData {
                 // comment.content = newContent;
                 // console.log(comment);
                 return this.collection.updateOne(
-                    { "topic": `${comment.topic}` },
-                    { "author": `${comment.author}` },
-                    { "authorId": `${comment.authorId}` },
-                    { "date": `${comment.date}` },
-                    { "_id": `${comment._id}` },
+                    { 'topic': `${comment.topic}` },
+                    { 'author': `${comment.author}` },
+                    { 'authorId': `${comment.authorId}` },
+                    { 'date': `${comment.date}` },
+                    { '_id': `${comment._id}` },
                     {
                         $set: {
-                            "content": `${newContent}`,
+                            'content': `${newContent}`,
                         },
                     }
                 );

@@ -1,8 +1,7 @@
-/* eslint quotes: ["error", "double", { "allowTemplateLiterals": true }]*/
-const BaseData = require("./base/base.data");
-const Topic = require("../models/topic.model");
-const helper = require("../helpers/helpers");
-const { ObjectID } = require("mongodb");
+const BaseData = require('./base/base.data');
+const Topic = require('../models/topic.model');
+const helper = require('../helpers/helpers');
+const { ObjectID } = require('mongodb');
 class TopicsData extends BaseData {
     constructor(db) {
         super(db, Topic, Topic);
@@ -24,10 +23,10 @@ class TopicsData extends BaseData {
 
     modify(title, newContent, id) {
         return this.collection.update(
-            { "comments._id": new ObjectID(`${id}`) },
+            { 'comments._id': new ObjectID(`${id}`) },
             {
                 $set: {
-                    "comments.$.content": newContent,
+                    'comments.$.content': newContent,
                 },
             });
     }
