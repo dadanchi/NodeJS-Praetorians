@@ -1,7 +1,7 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
 const notifier = require('node-notifier');
-const { ObjectID } = require('mongodb');
+const { encryptor } = require('../helpers/helpers');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -45,7 +45,7 @@ class UsersData extends BaseData {
             { _id: oldData._id },
             {
                 $set: {
-                    password: updatedData.password,
+                    password: encryptor.encrypt(updatedData.password),
                     firstname: updatedData.firstname,
                     lastname: updatedData.lastname,
                     town: updatedData.town,
