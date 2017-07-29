@@ -6,23 +6,31 @@ block body
 
     h1
         = topic.title
-    div.description
-        = topic.content
     if topic.comments
+        div.description
+            div.comment
+                =topic.comments[0].content
+            div.author
+                span
+                    ='Written by '
+                a(href=`/users/:user=${topic.comments[0].author}`)
+                    =topic.comments[0].author
+                p.date-row
+                    =topic.comments[0].date
+                +modifyPost(topic.title, topic.comments[0]._id, topic.comments[0].content)
     h3
         ='Comments'
-    each comment in topic.comments
-
+    -for (let i = 1; i < topic.comments.length; i+=1)
         div.comment
-            = comment.content
+            =topic.comments[i].content
         div.author
             span
                 ='Written by '
-            a(href=`/users/:user=${comment.author}`)
-                =comment.author
+            a(href=`/users/:user=${topic.comments[i].author}`)
+                =topic.comments[i].author
             p.date-row
-                =comment.date
-            +modifyPost(topic.title, comment._id, comment.content)
+                =topic.comments[i].date
+            +modifyPost(topic.title, topic.comments[i]._id, topic.comments[i].content)
     +page(topic.comments.length)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')

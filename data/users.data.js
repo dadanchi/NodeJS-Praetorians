@@ -1,7 +1,7 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
 const notifier = require('node-notifier');
-const { ObjectID } = require('mongodb');
+const { encryptor } = require('../helpers/helpers');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -41,14 +41,43 @@ class UsersData extends BaseData {
     }
 
     async updateProfil(updatedData, oldData) {
+        let newPassword = '';
+        let newFirstName = '';
+        let newLastName = '';
+        let newTown = '';
+
+        if (updatedData.password === '' || updatedData.password === null) {
+            newPassword = oldData.password;
+        } else {
+            newPassword = encryptor.encrypt(updatedData.password);
+        }
+
+        if (updatedData.firstname) {
+            newFirstName = updatedData.firstname;
+        } else {
+            newFirstName = oldData.firstname;
+        }
+
+        if (updatedData.lastname) {
+            newLastName = updatedData.lastname;
+        } else {
+            newLastName = oldData.lastname;
+        }
+
+        if (updatedData.town) {
+            newTown = updatedData.town;
+        } else {
+            newTown = oldData.town;
+        }
+
         return this.collection.update(
             { _id: oldData._id },
             {
                 $set: {
-                    password: updatedData.password,
-                    firstname: updatedData.firstname,
-                    lastname: updatedData.lastname,
-                    town: updatedData.town,
+                    password: newPassword,
+                    firstname: newFirstName,
+                    lastname: newLastName,
+                    town: newTown,
                 },
             }
         );
