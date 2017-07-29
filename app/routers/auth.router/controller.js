@@ -1,5 +1,5 @@
 const passport = require('passport');
-const { encryptor } = require('../../../helpers/helpers');
+const helper = require('../../../helpers/helpers');
 
 class UsersController {
     constructor(data) {
@@ -20,7 +20,8 @@ class UsersController {
     signUp(req, res) {
         const bodyUser = req.body;
         bodyUser.comments = [];
-        bodyUser.password = encryptor.encrypt(bodyUser.password);
+        bodyUser.regDate = helper.getDate();
+        bodyUser.password = helper.encryptor.encrypt(bodyUser.password);
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
