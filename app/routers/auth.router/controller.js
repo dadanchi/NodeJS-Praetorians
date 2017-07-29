@@ -39,7 +39,7 @@ class UsersController {
     signIn(req, res) {
         return new Promise(() => {
             const bodyUser = req.body;
-            bodyUser.password = encryptor.encrypt(bodyUser.password);
+            bodyUser.password = helper.encryptor.encrypt(bodyUser.password);
             passport.authenticate('local',
                 { failureRedirect: '/auth/sign-in' })(req, res, () => {
                     if (res.status(200)) {
