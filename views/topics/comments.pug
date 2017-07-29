@@ -30,8 +30,8 @@ block body
                 =topic.comments[i].author
             p.date-row
                 =topic.comments[i].date
-        if user && topic.comments[i].author === user.username
-            +modifyPost(topic.title, topic.comments[i]._id, topic.comments[i].content)
+            if user && topic.comments[i].author === user.username
+                +modifyPost(topic.title, topic.comments[i]._id, topic.comments[i].content)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
             textarea.form-control(name='comment' placeholder='Add a comment')
