@@ -39,6 +39,8 @@ a:hover {
 
 #btn-update-profile{
     margin-top: 2%;
+    margin-left: 5%;
+    float: left;
 }
 
 .container-filter{
@@ -200,12 +202,11 @@ div#user-info {
 
 div#profile-info {
     float: left;
-    border: 1px solid black;
-    margin-left: 2%;
+    margin-left: 5%;
     width: 70%;
     height: 40vh;
     padding-left: 5%;
-    padding-top: 2%;
+    padding-top: 0%;
 }
 
 div#profile-info ul li {
@@ -231,7 +232,7 @@ div#user-posts {
 }
 
 div#posts-container div#user-posts-wrapper:nth-child(2n + 1) {
-    background: #008000;
+    background: #5AC8B5;
     color: white;
 }
 

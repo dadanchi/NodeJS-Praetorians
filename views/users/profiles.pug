@@ -29,13 +29,13 @@ block body
                     li
                         | Register Date:
                         =context.regDate
-                button.btn.btn-success#posts-show-btn
+                button.btn.btn-primary#posts-show-btn
                     | Show posts
                 button.btn.btn-danger#posts-hide-btn
                     | Hide post
             if user && context.username === user.username
                 form(action=`/users/:user=${user.username}/updateProfil`, method='get')
-                    button.btn.btn-primary#btn-update-profile
-                        | Update profil
+                    button.btn.btn-success#btn-update-profile
+                        | Update profile
     div#user-posts
         +showPosts()
