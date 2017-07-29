@@ -17,7 +17,8 @@ block body
                     =topic.comments[0].author
                 p.date-row
                     =topic.comments[0].date
-                +modifyPost(topic.title, topic.comments[0]._id, topic.comments[0].content)
+                if user && topic.author === user.username
+                    +modifyPost(topic.title, topic.comments[0]._id, topic.comments[0].content)
     h3
         ='Comments'
     -for (let i = 1; i < topic.comments.length; i+=1)
