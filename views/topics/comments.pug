@@ -30,6 +30,7 @@ block body
                 =topic.comments[i].author
             p.date-row
                 =topic.comments[i].date
+        if user && topic.comments[i].author === user.username
             +modifyPost(topic.title, topic.comments[i]._id, topic.comments[i].content)
     if user
         form(action=`/topics/:title=${topic.title}/comments` method='post')
@@ -37,3 +38,4 @@ block body
             button.btn.btn-success
                 | Submit
     +page(topic.comments.length)
+//-
