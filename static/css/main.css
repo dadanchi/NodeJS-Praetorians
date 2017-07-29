@@ -295,3 +295,16 @@ div#user-posts-wrapper {
 div#post-topic-btn {
     width: 100%;
 }
+
+div.container-filter {
+    margin-right: 2%;
+}
+
+div.container-filter .input-group input, div.container-filter .input-group button{
+    height: 5vh;
+    margin-top: 0.35vh;
+}
+
+div.container-filter .input-group input {
+    margin-top: 1.4%;
+}
