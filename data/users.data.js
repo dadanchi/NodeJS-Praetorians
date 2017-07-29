@@ -46,6 +46,7 @@ class UsersData extends BaseData {
         let newFirstName = '';
         let newLastName = '';
         let newTown = '';
+        let newProfilImage = '';
 
         if (updatedData.password === '' || updatedData.password === null) {
             newPassword = oldData.password;
@@ -71,10 +72,17 @@ class UsersData extends BaseData {
             newTown = oldData.town;
         }
 
+        if (updatedData.profilImage) {
+            newProfilImage = updatedData.profilImage;
+        } else {
+            newProfilImage = oldData.profilImage;
+        }
+
         if (validator.validatePasswordUpdate(req, res, newPassword, oldData) === false ||
             validator.validateName(req, res, newFirstName) === false ||
             validator.validateName(req, res, newLastName) === false ||
-            validator.validateTown(req, res, newTown) === false) {
+            validator.validateTown(req, res, newTown) === false ||
+            validator.validateProfilImageUrl(req, res, newProfilImage) === false) {
             res.redirect(`/users/:user=${oldData.username}/updateProfil`);
         }
 
@@ -86,6 +94,7 @@ class UsersData extends BaseData {
                     firstname: newFirstName,
                     lastname: newLastName,
                     town: newTown,
+                    profilImage: newProfilImage,
                 },
             }
         );

@@ -93,7 +93,7 @@ const validatePasswordUpdate = (req, res, password, user) => {
 const validateTown = (req, res, town) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
 
-    if (town !== null || town !== '' || town !== 'undefined') {
+    if (town.length !== 0) {
         if (town.length < 2) {
             notifier.notify('Town must be at least 2 chars long');
             res.redirect(redirectDirectory);
@@ -108,6 +108,20 @@ const validateTown = (req, res, town) => {
     return true;
 };
 
+const validateProfilImageUrl = (req, res, url) => {
+    const redirectDirectory = req.headers.referer.substr(strToRemove.length);
+    const urlRegex =/^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i;
+
+    if (url.length !== 0) {
+        if (!url.match(urlRegex)) {
+            notifier.notify('Enter a valid Url');
+            res.redirect(redirectDirectory);
+            return false;
+        }
+    }
+    return true;
+};
+
 
 module.exports = {
     validatePassword,
@@ -115,4 +129,5 @@ module.exports = {
     validatePasswordUpdate,
     validateTown,
     validateName,
+    validateProfilImageUrl,
 };
