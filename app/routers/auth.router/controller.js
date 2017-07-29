@@ -25,6 +25,7 @@ class UsersController {
         const lastname = bodyUser.lastname;
         const town = bodyUser.town;
         bodyUser.regDate = helper.getDate();
+        bodyUser.profilImage = bodyUser.profilImage;
         if (validator.validatePassword(req, res, bodyUser.password) === false ||
             validator.validateUsername(req, res, bodyUser.username) === false ||
             validator.validateName(req, res, firstname) === false ||
