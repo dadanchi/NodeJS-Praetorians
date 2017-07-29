@@ -110,10 +110,10 @@ const validateTown = (req, res, town) => {
 
 const validateProfilImageUrl = (req, res, url) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
-    const urlRegex = new RegExp(/^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i);
+    const urlRegex =/^\s*data:([a-z]+\/[a-z]+(;[a-z\-]+\=[a-z\-]+)?)?(;base64)?,[a-z0-9\!\$\&\'\,\(\)\*\+\,\;\=\-\.\_\~\:\@\/\?\%\s]*\s*$/i;
 
     if (url.length !== 0) {
-        if (!!url.match(urlRegex)) {
+        if (!url.match(urlRegex)) {
             notifier.notify('Enter a valid Url');
             res.redirect(redirectDirectory);
             return false;
