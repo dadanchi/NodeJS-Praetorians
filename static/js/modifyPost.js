@@ -5,7 +5,7 @@ $(() => {
     const modifyForm = '.modify-form';
     const cell = document.querySelectorAll('.modify-conteiner');
     for (let i = 0; i < cell.length; i++) {
-        cell[i].addEventListener('click', callback, false);
+        cell[i].addEventListener('mouseover', callback, false);
     }
     function callback() {
         const $this = $(this);

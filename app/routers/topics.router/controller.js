@@ -120,7 +120,6 @@ const init = (data) => {
         },
         edit(req, res) {
             const newContent = req.body.content;
-            const route = req.route;
             const idRemovedString = ':comment=';
             const id = req.params.commentId.substr(idRemovedString.length);
             const removedString = ':title=';
