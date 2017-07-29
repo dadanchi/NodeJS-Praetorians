@@ -249,6 +249,11 @@ div#user-posts-wrapper {
     margin-top: 2%;
 }
 
+
+.add-topic-btn {
+    float: left;
+}
+
 .post-comment {
     height: 2.2em;
     line-height: 1.1;
@@ -271,4 +276,21 @@ div#user-posts-wrapper {
 }
 .modify-btn{
     float:left;
+}
+
+.add-topic-btn {
+    float: left;
+    
+}
+
+#prev-page-btn, #next-page-btn{
+    float: right;
+}
+
+#prev-page-btn {
+    margin-right: 1%;
+}
+
+div#post-topic-btn {
+    width: 100%;
 }

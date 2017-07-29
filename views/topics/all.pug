@@ -28,9 +28,9 @@ block body
             div.topic-wrapper.comments-count-info
                 span
                     =topic.comments.length
-    +page(context.length)
-    if user
-        div#post-topic-btn
+    div#post-topic-btn
+        +page(context.length)
+        if user
             form(action="/topics/form" method="get")
-                button.btn.btn-success
+                button.btn.btn-success.add-topic-btn
                     | Start New Topic
