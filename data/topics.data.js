@@ -30,6 +30,18 @@ class TopicsData extends BaseData {
                 },
             });
     }
+    deleteComment(title, id) {
+        return this.collection.update(
+            { 'title': `${title}` },
+            {
+                $pull: {
+                    'comments': {
+                        '_id': new ObjectID(`${id}`),
+                    },
+                },
+            },
+        );
+    }
 
     async addComment(comment) {
         const newTopic = await this.collection.findOne(

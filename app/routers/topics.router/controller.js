@@ -36,7 +36,6 @@ const init = (data) => {
                 .then((newComm) => {
                     return Promise.resolve(data.users.addComment(newComm))
                         .then(() => {
-                            delete topic.content;
                             topic.comments = [];
                             topic.comments.push(newComm);
                             // req.user.comments = [];
@@ -116,9 +115,18 @@ const init = (data) => {
             const id = req.params.commentId;
             const title = req.params.title;
             return Promise.resolve(data.topics.modify(title, newContent, id))
-            .then((modified)=>{
-                return res.redirect(`/topics/${title}`);
-            });
+                .then((modified) => {
+                    return res.redirect(`/topics/${title}`);
+                });
+        },
+        delete(req, res) {
+            const newContent = req.body.content;
+            const id = req.params.commentId;
+            const title = req.params.title;
+            return Promise.resolve(data.topics.deleteComment(title, id))
+                .then((modified) => {
+                    return res.redirect(`/topics/${title}`);
+                });
         },
     };
 

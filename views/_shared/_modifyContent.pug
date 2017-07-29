@@ -1,5 +1,5 @@
-mixin modifyPost(topicTitle, id, commContent)
-    script(src = '/static/js/modifyPost.js')
+mixin modifyContent(topicTitle, id, commContent)
+    script(src = '/static/js/modifyContent.js')
     .modify-conteiner
         .modify-form
             form.form-horizontal(action=`/topics/${topicTitle}/${id}/edit` method="post")
@@ -12,8 +12,3 @@ mixin modifyPost(topicTitle, id, commContent)
         .modify-btn
             button.btn.btn-info
                 | Modify
-        .delete-btn
-            form.form-horizontal(action=`/topics/${topicTitle}/${id}/delete` method="post")
-                    button.confirm-btn.btn.btn-danger
-                            | Delete
-

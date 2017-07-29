@@ -26,6 +26,9 @@ const attachTo = (app, data) => {
         .post('/:title/:commentId/edit', (req, res) => {
             return controller.edit(req, res);
         })
+        .post('/:title/:commentId/delete', (req, res) => {
+            return controller.delete(req, res);
+        })
         .post('/:title/comments', (req, res) => {
             return controller.addComment(req, res);
         });

@@ -274,10 +274,19 @@ div#user-posts-wrapper {
      display: none;
 
 }
+.return-btn{
+     display: none;
+
+}
 .modify-form{
     min-width: 100%;
      display: none;
-     float:left;
+     position :relative;
+}
+.return-btn{
+    position:absolute;
+    left: 37px;
+    bottom: 0%;
 }
 .modify-btn{
     float:left;
@@ -285,7 +294,7 @@ div#user-posts-wrapper {
 
 .add-topic-btn {
     float: left;
-    
+
 }
 
 #prev-page-btn, #next-page-btn{
