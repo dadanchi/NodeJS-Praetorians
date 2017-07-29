@@ -1,6 +1,6 @@
 const passport = require('passport');
 const helper = require('../../../helpers/helpers');
-const notifier = require('node-notifier');
+const validator = require('../../../helpers/validator');
 
 class UsersController {
     constructor(data) {
@@ -22,6 +22,11 @@ class UsersController {
         const bodyUser = req.body;
         bodyUser.comments = [];
         bodyUser.regDate = helper.getDate();
+
+        if (validator.validatePassword(req, res, bodyUser.password) === false ||
+         validator.validateUsername(req, res, bodyUser.username) === false) {
+            res. redirect('/auth/sign-up');
+        }
         bodyUser.password = helper.encryptor.encrypt(bodyUser.password);
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
@@ -34,10 +39,6 @@ class UsersController {
                             res.redirect('/');
                         });
                     });
-            })
-            .catch((err) => {
-                notifier.notify(err.message);
-                res.redirect('/auth/sign-up');
             });
     }
 
