@@ -1,4 +1,5 @@
 const notifier = require('node-notifier');
+const strToRemove = 'http://localhost:3001';
 
 const validatePassword = (req, res, password) => {
     if (password === '' || password === null) {
@@ -24,6 +25,7 @@ const validatePassword = (req, res, password) => {
         res.redirect('/auth/sign-up');
         return false;
     }
+
     return true;
 };
 
@@ -54,6 +56,19 @@ const validateUsername = (req, res, username) => {
     return true;
 };
 
+const validateName = (req, res, name) => {
+    const redirectDirectory = req.headers.referer.substr(strToRemove.length);
+
+    if (name !== null || name !== '' || name !== 'undefined') {
+        if (name.match(/[^a-zA-Z ]/)) {
+            notifier.notify('Name name must contain only letters a-zA-Z.');
+            res.redirect(redirectDirectory);
+            return false;
+        }
+    }
+    return true;
+};
+
 const validatePasswordUpdate = (req, res, password, user) => {
     const redirectDirectory = `/users/:user=${user.username}/updateProfil`;
 
@@ -73,34 +88,8 @@ const validatePasswordUpdate = (req, res, password, user) => {
     return true;
 };
 
-const validateFirstNameUpdate = (req, res, firstname, user) => {
-    const redirectDirectory = `/users/:user=${user.username}/updateProfil`;
-
-    if (firstname !== null || firstname !== '' || firstname !== 'undefined') {
-        if (firstname.match(/[^a-zA-Z ]/)) {
-            notifier.notify('First name must contain only letters a-zA-Z.');
-            res.redirect(redirectDirectory);
-            return false;
-        }
-    }
-    return true;
-};
-
-const validateLastNameUpdate = (req, res, lastname, user) => {
-    const redirectDirectory = `/users/:user=${user.username}/updateProfil`;
-
-    if (lastname !== null || lastname !== '' || lastname !== 'undefined') {
-        if (lastname.match(/[^a-zA-Z ]/)) {
-            notifier.notify('Last name must contain only letters a-zA-Z.');
-            res.redirect(redirectDirectory);
-            return false;
-        }
-    }
-    return true;
-};
-
-const validateTownUpdate = (req, res, town, user) => {
-    const redirectDirectory = `/users/:user=${user.username}/updateProfil`;
+const validateTown = (req, res, town) => {
+    const redirectDirectory = req.headers.referer.substr(strToRemove.length);
 
     if (town !== null || town !== '' || town !== 'undefined') {
         if (town.length < 2) {
@@ -122,7 +111,6 @@ module.exports = {
     validatePassword,
     validateUsername,
     validatePasswordUpdate,
-    validateFirstNameUpdate,
-    validateLastNameUpdate,
-    validateTownUpdate,
+    validateTown,
+    validateName,
 };

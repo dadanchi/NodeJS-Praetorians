@@ -72,9 +72,9 @@ class UsersData extends BaseData {
         }
 
         if (validator.validatePasswordUpdate(req, res, newPassword, oldData) === false ||
-            validator.validateFirstNameUpdate(req, res, newFirstName, oldData) === false ||
-            validator.validateLastNameUpdate(req, res, newLastName, oldData) === false ||
-            validator.validateTownUpdate(req, res, newTown, oldData) === false) {
+            validator.validateName(req, res, newFirstName) === false ||
+            validator.validateName(req, res, newLastName) === false ||
+            validator.validateTown(req, res, newTown) === false) {
             res.redirect(`/users/:user=${oldData.username}/updateProfil`);
         }
 

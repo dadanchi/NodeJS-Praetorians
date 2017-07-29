@@ -21,12 +21,18 @@ class UsersController {
     signUp(req, res) {
         const bodyUser = req.body;
         bodyUser.comments = [];
+        const firstname = bodyUser.firstname;
+        const lastname = bodyUser.lastname;
+        const town = bodyUser.town;
         bodyUser.regDate = helper.getDate();
-
         if (validator.validatePassword(req, res, bodyUser.password) === false ||
-         validator.validateUsername(req, res, bodyUser.username) === false) {
-            res. redirect('/auth/sign-up');
+            validator.validateUsername(req, res, bodyUser.username) === false ||
+            validator.validateName(req, res, firstname) === false ||
+            validator.validateName(req, res, lastname) === false ||
+            validator.validateTown(req, res, town) === false) {
+            res.redirect('/auth/sign-up');
         }
+
         bodyUser.password = helper.encryptor.encrypt(bodyUser.password);
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
