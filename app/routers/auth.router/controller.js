@@ -1,5 +1,6 @@
 const passport = require('passport');
 const helper = require('../../../helpers/helpers');
+const notifier = require('node-notifier');
 
 class UsersController {
     constructor(data) {
@@ -33,6 +34,10 @@ class UsersController {
                             res.redirect('/');
                         });
                     });
+            })
+            .catch((err) => {
+                notifier.notify(err.message);
+                res.redirect('/auth/sign-up');
             });
     }
 
