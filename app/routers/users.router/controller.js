@@ -1,8 +1,7 @@
 const init = (data) => {
     const controller = {
         showUserProfile(req, res) {
-            const removedString = ':user=';
-            const username = req.params.user.substr(removedString.length);
+            const username = req.params.user;
             return data.users.findByUserName(username)
                 .then((user) => {
                     if (typeof (user) === 'undefined') {
@@ -14,8 +13,7 @@ const init = (data) => {
                 });
         },
         getUpdateProfilPage(req, res) {
-            const removedString = ':user=';
-            const username = req.params.user.substr(removedString.length);
+            const username = req.params.user;
             return data.users.findByUserName(username)
                 .then((user) => {
                     if (typeof (user) === 'undefined') {
@@ -28,8 +26,7 @@ const init = (data) => {
         },
 
         updateProfilInfo(req, res) {
-            const removedString = ':user=';
-            const username = req.params.user.substr(removedString.length);
+            const username = req.params.user;
             const bodyUser = req.body;
             return data.users.findByUserName(username)
                 .then((user) => {

@@ -13,7 +13,7 @@ block body
             div.author
                 span
                     ='Written by '
-                a(href=`/users/:user=${topic.comments[0].author}`)
+                a(href=`/users/${topic.comments[0].author}`)
                     =topic.comments[0].author
                 p.date-row
                     =topic.comments[0].date
@@ -27,14 +27,14 @@ block body
         div.author
             span
                 ='Written by '
-            a(href=`/users/:user=${topic.comments[i].author}`)
+            a(href=`/users/${topic.comments[i].author}`)
                 =topic.comments[i].author
             p.date-row
                 =topic.comments[i].date
             if user && topic.comments[i].author === user.username
                 +modifyPost(topic.title, topic.comments[i]._id, topic.comments[i].content)
     if user
-        form(action=`/topics/:title=${topic.title}/comments` method='post')
+        form(action=`/topics/${topic.title}/comments` method='post')
             textarea.form-control(name='comment' placeholder='Add a comment')
             button.btn.btn-success
                 | Submit

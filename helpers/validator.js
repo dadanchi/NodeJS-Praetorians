@@ -72,7 +72,7 @@ const validateName = (req, res, name) => {
 };
 
 const validatePasswordUpdate = (req, res, password, user) => {
-    const redirectDirectory = `/users/:user=${user.username}/updateProfil`;
+    const redirectDirectory = `/users/${user.username}/updateProfil`;
 
     if (password !== null || password !== '' || password !== 'undefined') {
         if (password.length < 6) {

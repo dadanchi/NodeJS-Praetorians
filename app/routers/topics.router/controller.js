@@ -63,8 +63,7 @@ const init = (data) => {
         },
 
         getCurrentTopic(req, res) {
-            const removedString = ':title=';
-            const title = req.params.title.substr(removedString.length);
+            const title = req.params.title;
             let page = req.query.page || 1;
             const size = 8;
             return data.topics.findByTitle(title)
@@ -89,8 +88,7 @@ const init = (data) => {
         },
 
         addComment(req, res) {
-            const removedString = ':title=';
-            const title = req.params.title.substr(removedString.length);
+            const title = req.params.title;
             return Promise.resolve(data.topics.findByTitle(title))
                 .then((topic) => {
                     const comment = {
@@ -108,25 +106,18 @@ const init = (data) => {
                                 data.topics.addComment(newComm),
                             ])
                                 .then(() => {
-                                    return res.redirect(`/topics/:title=${title}`);
+                                    return res.redirect(`/topics/${title}`);
                                 });
                         });
-                    // for debugging
-                    // .catch((err) => {
-                    //     console.log(err);
-                    //     return res.redirect(`/topics/:title=${title}`);
-                    // });
                 });
         },
         edit(req, res) {
             const newContent = req.body.content;
-            const idRemovedString = ':comment=';
-            const id = req.params.commentId.substr(idRemovedString.length);
-            const removedString = ':title=';
-            const title = req.params.title.substr(removedString.length);
+            const id = req.params.commentId;
+            const title = req.params.title;
             return Promise.resolve(data.topics.modify(title, newContent, id))
             .then((modified)=>{
-                return res.redirect(`/topics/:title=${title}`);
+                return res.redirect(`/topics/${title}`);
             });
         },
     };

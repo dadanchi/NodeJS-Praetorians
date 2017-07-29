@@ -1,7 +1,7 @@
 extends ../_shared/_master
 block body
     div#update-form
-        form(action=`/users/:user=${context.username}`, method="POST")
+        form(action=`/users/${context.username}`, method="POST")
             ul
                 li
                     | Change password

@@ -17,10 +17,10 @@ block body
     each topic in context
         div.topic
             div.topic-wrapper.title-info
-                a(href=`/topics/:title=${topic.title}`)
+                a(href=`/topics/${topic.title}`)
                     =topic.title
             div.topic-wrapper.author-info
-                a(href=`/users/:user=${topic.author}`)
+                a(href=`/users/${topic.author}`)
                     =topic.author
             div
                 span

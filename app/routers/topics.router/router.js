@@ -18,18 +18,18 @@ const attachTo = (app, data) => {
             if (req.user) {
                 return res.render('topics/form');
             }
-            // expect todo --> popup message
             return res.redirect('/topics');
         })
         .get('/:title', (req, res) => {
             return controller.getCurrentTopic(req, res);
         })
-        .post('/:title/comments', (req, res) => {
-            return controller.addComment(req, res);
-        })
         .post('/:title/:commentId/edit', (req, res) => {
             return controller.edit(req, res);
+        })
+        .post('/:title/comments', (req, res) => {
+            return controller.addComment(req, res);
         });
+
 
     app.use('/topics', router);
 };

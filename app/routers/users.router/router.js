@@ -5,13 +5,11 @@ const attachTo = (app, data) => {
     const router = new Router();
 
     router
-        .get('/:user', (req, res) => {
-
-                return controller.showUserProfile(req, res);
-            // expect todo --> popup message
-        })
         .get('/:user/updateProfil', (req, res) => {
             return controller.getUpdateProfilPage(req, res);
+        })
+        .get('/:user', (req, res) => {
+                return controller.showUserProfile(req, res);
         })
         .post('/:user', (req, res) => {
             return controller.updateProfilInfo(req, res);

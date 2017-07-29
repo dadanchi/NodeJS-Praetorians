@@ -34,7 +34,7 @@ block body
                 button.btn.btn-danger#posts-hide-btn
                     | Hide post
             if user && context.username === user.username
-                form(action=`/users/:user=${user.username}/updateProfil`, method='get')
+                form(action=`/users/${user.username}/updateProfil`, method='get')
                     button.btn.btn-success#btn-update-profile
                         | Update profile
     div#user-posts

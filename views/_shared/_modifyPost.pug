@@ -2,7 +2,7 @@ mixin modifyPost(topicTitle, id, commContent)
     script(src = '/static/js/modifyPost.js')
     .modify-conteiner
         .modify-form
-            form.form-horizontal(action=`/topics/:title=${topicTitle}/:comment=${id}/edit` method="post")
+            form.form-horizontal(action=`/topics/${topicTitle}/${id}/edit` method="post")
                 textarea.form-control(rows=3  name="content" )| #{commContent}
                 br
                 button.confirm-btn.btn.btn-info
