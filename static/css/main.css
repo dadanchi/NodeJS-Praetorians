@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     width: 100%;
     margin: 0;
+    background-image: url('/static/css/images/background.jpg')
 }
 
 h1 {
@@ -99,7 +100,12 @@ ul {
 .container{
     margin-left: 25%;
     width: 50%;
+    background: #C7EEAF;
+    height: 100%;
+}
 
+.nav-tabs {
+    background: #B0C4A2;
 }
 
 div.topic {
@@ -194,16 +200,18 @@ div#profile-image {
     border: 1px solid black;
     width: 20%;
     float: left;
+    margin-left: 20%;
 }
 
 div#user-info {
+    margin-top: 5%;
     width: 100%;
 }
 
 div#profile-info {
     float: left;
     margin-left: 5%;
-    width: 70%;
+    width: 40%;
     height: 40vh;
     padding-left: 5%;
     padding-top: 0%;
@@ -222,17 +230,13 @@ img#profile-pic {
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif
 }
 
-div#user-posts {
-    margin-left: 22%;
-}
-
 #posts-container {
     width: 100%;
     word-break:break-all;
 }
 
 div#posts-container div#user-posts-wrapper:nth-child(2n + 1) {
-    background: #5AC8B5;
+    background: #5EB32B;
     color: white;
 }
 
