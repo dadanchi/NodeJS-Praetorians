@@ -8,7 +8,10 @@ block body
             =context.username
     div#user-info
         div#profile-image
-            img#profile-pic(src=context.profilImage)
+            if context.profilImage
+                img#profile-pic(src=context.profilImage)
+            else
+                img#profile-pic(src='/static/css/images/default-profile.jpg')
         div#profile-info
             h3
                 | About me

@@ -24,13 +24,14 @@ class UsersController {
         const firstname = bodyUser.firstname;
         const lastname = bodyUser.lastname;
         const town = bodyUser.town;
-        bodyUser.regDate = helper.getDate();
-        bodyUser.profilImage = bodyUser.profilImage;
+        const profilImage = bodyUser.profilImage;
+        bodyUser.regDate = helper.getDate();       
         if (validator.validatePassword(req, res, bodyUser.password) === false ||
             validator.validateUsername(req, res, bodyUser.username) === false ||
             validator.validateName(req, res, firstname) === false ||
             validator.validateName(req, res, lastname) === false ||
-            validator.validateTown(req, res, town) === false) {
+            validator.validateTown(req, res, town) === false ||
+            validator.validateProfilImageUrl(req, res, profilImage) === false) {
             res.redirect('/auth/sign-up');
         }
 
