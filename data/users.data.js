@@ -2,6 +2,7 @@ const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
 const notifier = require('node-notifier');
 const { encryptor } = require('../helpers/helpers');
+const validator = require('../helpers/validator');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -40,7 +41,7 @@ class UsersData extends BaseData {
             });
     }
 
-    async updateProfil(updatedData, oldData) {
+    async updateProfil(updatedData, oldData, req, res) {
         let newPassword = '';
         let newFirstName = '';
         let newLastName = '';
@@ -68,6 +69,13 @@ class UsersData extends BaseData {
             newTown = updatedData.town;
         } else {
             newTown = oldData.town;
+        }
+
+        if (validator.validatePasswordUpdate(req, res, newPassword, oldData) === false ||
+            validator.validateFirstNameUpdate(req, res, newFirstName, oldData) === false ||
+            validator.validateLastNameUpdate(req, res, newLastName, oldData) === false ||
+            validator.validateTownUpdate(req, res, newTown, oldData)) {
+            res.redirect(`/users/:user=${oldData.username}/updateProfil`);
         }
 
         return this.collection.update(

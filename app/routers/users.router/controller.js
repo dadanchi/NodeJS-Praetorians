@@ -36,7 +36,7 @@ const init = (data) => {
                     if (typeof (user) === 'undefined') {
                         return res.render('error');
                     }
-                    return data.users.updateProfil(bodyUser, user)
+                    return data.users.updateProfil(bodyUser, user, req, res)
                         .then(() => {
                             return res.render(`home`);
                         });
