@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/**/*.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
@@ -7,6 +10,7 @@
     "eslint-config-jquery": "^1.0.1",
     "express": "^4.15.3",
     "express-session": "^1.15.4",
+    "jasmine": "^2.7.0",
     "jquery": "^3.2.1",
     "jsdom": "^11.1.0",
     "mixin": "^0.2.0",
@@ -14,6 +18,11 @@
     "node-notifier": "^5.1.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "sinon": "^2.4.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
   }
 }
