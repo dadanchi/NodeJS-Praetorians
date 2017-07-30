@@ -10,8 +10,6 @@ block body
             | Title
         div.author-info
             | Author
-        div.date-info
-            | Date
         div.comments-count-info
             | Comments
     each topic in context
@@ -19,12 +17,13 @@ block body
             div.topic-wrapper.title-info
                 a(href=`/topics/${topic.title}`)
                     =topic.title
+                    h6
+                        p
+                            | last comment :
+                            =topic.comments[topic.comments.length - 1].date
             div.topic-wrapper.author-info
                 a(href=`/users/${topic.author}`)
                     =topic.author
-            div
-                span
-                    | kur
             div.topic-wrapper.comments-count-info
                 span
                     =topic.comments.length

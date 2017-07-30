@@ -1,19 +1,18 @@
 const getDate = () => {
     const date = new Date();
-    return date.getHours() + 'hrs ' + date.getMinutes() + 'mins '
-                                        + date.getDate() + ' '
-                                       + date.getMonth() + ' '
-                                       + date.getFullYear();
+    return date.getHours() + ':' + date.getUTCMinutes() + '  '
+        + date.getDate() + '.'
+        + date.getMonth() + ' ' + date.getFullYear();
 };
 
 const encryptor =
     {
-    encrypt: (password) => {
+        encrypt: (password) => {
             let encryptedPassword = '';
-            for (let i = 0; i < password.length; i+=1) {
+            for (let i = 0; i < password.length; i += 1) {
                 encryptedPassword += String.fromCharCode(
                     password.charCodeAt(i) + 14) + String.fromCharCode(
-                    password.charCodeAt(i) + 3);
+                        password.charCodeAt(i) + 3);
             }
 
             return encryptedPassword;
