@@ -266,6 +266,7 @@ div#user-posts-wrapper {
 #posts-show-btn, #posts-hide-btn {
     float: left;
     margin-top: 2%;
+    margin-bottom: 5%;
 }
 
 
@@ -281,6 +282,8 @@ div#user-posts-wrapper {
 }
 .add-comment{
     margin-top: 2%;
+
+
 }
 .modify-text{
     display: none;
@@ -311,7 +314,10 @@ div#user-posts-wrapper {
     float: left;
 
 }
-
+.pagination{
+    min-width:15%;
+    float: right;
+}
 #prev-page-btn, #next-page-btn{
     float: right;
 }
