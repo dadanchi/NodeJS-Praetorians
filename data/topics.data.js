@@ -32,18 +32,18 @@ class TopicsData extends BaseData {
                 },
             });
     }
-    deleteComment(title, id) {
-        return this.collection.update(
-            { 'title': `${title}` },
-            {
-                $pull: {
-                    'comments': {
-                        '_id': new ObjectID(`${id}`),
-                    },
-                },
-            },
-        );
-    }
+    // deleteComment(title, id) {
+    //     return this.collection.update(
+    //         { 'title': `${title}` },
+    //         {
+    //             $pull: {
+    //                 'comments': {
+    //                     '_id': new ObjectID(`${id}`),
+    //                 },
+    //             },
+    //         },
+    //     );
+    // }
 
     addComment(comment) {
         return Promise.resolve(this.collection.findOne(

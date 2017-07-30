@@ -114,4 +114,3 @@ describe('Base data _getCollectionName()', () => {
         });
     });
 });
-
