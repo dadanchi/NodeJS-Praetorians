@@ -17,7 +17,8 @@ class TopicsData extends BaseData {
             .find()
             .toArray()
             .then((x) => {
-                return x.reverse();
+                return x.sort()
+                    .reverse();
             });
     }
 
