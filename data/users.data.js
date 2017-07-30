@@ -3,6 +3,8 @@ const User = require('../models/user.model');
 const notifier = require('node-notifier');
 const { encryptor } = require('../helpers/helpers');
 const validator = require('../helpers/validator');
+const { ObjectID } = require('mongodb');
+
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -43,6 +45,15 @@ class UsersData extends BaseData {
         );
     }
 
+    updateComment(id, content) {
+        return this.collection.update(
+            { 'comments._id': new ObjectID(`${id}`) },
+            {
+                $set: {
+                    'comments.$.content': content,
+                },
+            });
+    }
 
     updateProfil(updatedData, oldData, req, res) {
         let newPassword = '';

@@ -110,15 +110,20 @@ const init = (data) => {
                         });
                 });
         },
+
         edit(req, res) {
             const newContent = req.body.content;
             const id = req.params.commentId;
             const title = req.params.title;
-            return Promise.resolve(data.topics.modify(title, newContent, id))
+            return Promise.all([
+                data.topics.modify(title, newContent, id),
+                data.users.updateComment(id, newContent, req, res),
+            ])
                 .then((modified) => {
                     return res.redirect(`/topics/${title}`);
                 });
         },
+
         delete(req, res) {
             const newContent = req.body.content;
             const id = req.params.commentId;
