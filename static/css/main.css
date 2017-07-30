@@ -281,7 +281,7 @@ div#user-posts-wrapper {
 
 }
 .add-comment{
-    margin-top: 2%;
+    margin-top: 10%;
 
 
 }
@@ -315,7 +315,7 @@ div#user-posts-wrapper {
 
 }
 .pagination{
-    min-width:15%;
+    min-width:50%;
     float: right;
 }
 #prev-page-btn, #next-page-btn{
