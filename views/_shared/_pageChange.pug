@@ -1,6 +1,7 @@
 mixin page(itemsCount)
-    button#next-page-btn.btn.btn-success
-        ='Next'
-    button#prev-page-btn.btn.btn-success
-        ='Previous'
-    script(src='../static/js/pageButton.js' pages=itemsCount)
+    .pagination
+        button#next-page-btn.btn.btn-success
+            ='Next'
+        button#prev-page-btn.btn.btn-success
+            ='Previous'
+        script(src='../static/js/pageButton.js' pages=itemsCount)
