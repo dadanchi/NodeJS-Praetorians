@@ -15,33 +15,36 @@ class UsersData extends BaseData {
             .then(([user]) => user);
     }
 
-    async addComment(comment) {
-        const newUser = await this.collection.findOne(
+    addComment(comment) {
+        return Promise.resolve(this.collection.findOne(
             {
                 username: comment.author,
-            });
-        const newComment = {
-            topic: comment.topic,
-            content: comment.content,
-            author: comment.author,
-            date: comment.date,
-            _id: comment._id,
-        };
+            }).then((newUser) => {
+                const newComment = {
+                    topic: comment.topic,
+                    content: comment.content,
+                    author: comment.author,
+                    date: comment.date,
+                    _id: comment._id,
+                };
 
-        newUser.comments.push(newComment);
+                newUser.comments.push(newComment);
 
-        return this.collection.updateOne(
-            {
-                username: comment.author,
-            },
-            newUser
-        )
-            .then(() => {
-                return newUser;
-            });
+                return this.collection.updateOne(
+                    {
+                        username: comment.author,
+                    },
+                    newUser
+                )
+                    .then(() => {
+                        return newUser;
+                    });
+            })
+        );
     }
 
-    async updateProfil(updatedData, oldData, req, res) {
+
+    updateProfil(updatedData, oldData, req, res) {
         let newPassword = '';
         let newFirstName = '';
         let newLastName = '';
