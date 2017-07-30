@@ -92,11 +92,26 @@ class UsersData extends BaseData {
             newProfilImage = oldData.profilImage;
         }
 
-        if (validator.validatePasswordUpdate(req, res, newPassword, oldData) === false ||
-            validator.validateName(req, res, newFirstName) === false ||
-            validator.validateName(req, res, newLastName) === false ||
-            validator.validateTown(req, res, newTown) === false ||
-            validator.validateProfilImageUrl(req, res, newProfilImage) === false) {
+        if (validator.validatePasswordUpdate(req, res, newPassword, oldData)
+                                                                 === false) {
+            notifier.notify('Invalid password');
+            res.redirect(`/users/:user=${oldData.username}/updateProfil`);
+        }
+        if (validator.validateName(req, res, newFirstName) === false) {
+            notifier.notify('Invalid first name');
+            res.redirect(`/users/:user=${oldData.username}/updateProfil`);
+        }
+        if (validator.validateName(req, res, newLastName) === false) {
+            notifier.notify('Invalid last name');
+            res.redirect(`/users/:user=${oldData.username}/updateProfil`);
+        }
+        if (validator.validateTown(req, res, newTown) === false) {
+            notifier.notify('Invalid town');
+            res.redirect(`/users/:user=${oldData.username}/updateProfil`);
+        }
+        if (validator.validateProfilImageUrl(req, res, newProfilImage)
+                                                             === false) {
+            notifier.notify('Invalid Url');
             res.redirect(`/users/:user=${oldData.username}/updateProfil`);
         }
 

@@ -4,27 +4,24 @@ const strToRemove = 'http://localhost:3001';
 const validatePassword = (req, res, password) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
     if (password === '' || password === null) {
-        notifier.notify('Enter password');
+        //notifier.notify('Enter password');
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (password.length < 6) {
-        notifier.notify('Password must be at least 6 chars long');
+       // notifier.notify('Password must be at least 6 chars long');
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (password.match(/[^a-zA-Z0-9 ]/)) {
-        notifier.notify(
-            'Password must contain only letters a-zA-Z and digits 0-9'
-        );
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (password.includes(' ')) {
-        notifier.notify('Password must not contain white spaces');
+       // notifier.notify('Password must not contain white spaces');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -35,27 +32,24 @@ const validatePassword = (req, res, password) => {
 const validateUsername = (req, res, username) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
     if (username === '' || username === null) {
-        notifier.notify('Enter username');
+      //  notifier.notify('Enter username');
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (username.length < 3 || typeof username !== 'string') {
-        notifier.notify('Username must be at least 3 chars long string');
+      //  notifier.notify('Username must be at least 3 chars long string');
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (username.match(/[^a-zA-Z0-9 ]/)) {
-        notifier.notify(
-            'Username must contain only letters a-zA-Z and digits 0-9'
-        );
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (username.includes(' ')) {
-        notifier.notify('Username must not contain white spaces');
+      //  notifier.notify('Username must not contain white spaces');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -67,7 +61,7 @@ const validateName = (req, res, name) => {
 
     if (name !== null || name !== '' || name !== 'undefined') {
         if (name.match(/[^a-zA-Z ]/)) {
-            notifier.notify('Name name must contain only letters a-zA-Z.');
+           // notifier.notify('Name name must contain only letters a-zA-Z.');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -80,13 +74,13 @@ const validatePasswordUpdate = (req, res, password, user) => {
 
     if (password !== null || password !== '' || password !== 'undefined') {
         if (password.length < 6) {
-            notifier.notify('Password must be at least 6 chars long');
+          //  notifier.notify('Password must be at least 6 chars long');
             res.redirect(redirectDirectory);
             return false;
         }
 
         if (password.includes(' ')) {
-            notifier.notify('Password must not contain white spaces');
+           // notifier.notify('Password must not contain white spaces');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -99,12 +93,12 @@ const validateTown = (req, res, town) => {
 
     if (town.length !== 0) {
         if (town.length < 2) {
-            notifier.notify('Town must be at least 2 chars long');
+           // notifier.notify('Town must be at least 2 chars long');
             res.redirect(redirectDirectory);
             return false;
         }
         if (town.match(/[^a-zA-Z ]/)) {
-            notifier.notify('Town name must contain only letters a-zA-Z.');
+          //  notifier.notify('Town name must contain only letters a-zA-Z.');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -118,7 +112,7 @@ const validateProfilImageUrl = (req, res, url) => {
 
     if (url.length !== 0) {
         if (!url.match(urlRegex)) {
-            notifier.notify('Enter a valid Url');
+            //notifier.notify('Enter a valid Url');
             res.redirect(redirectDirectory);
             return false;
         }

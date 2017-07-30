@@ -75,6 +75,11 @@ a:hover {
     margin-right: -2%;
 }
 
+#input-info{
+    font-size: 10px;
+    margin-left: 5%;
+}
+
 .name-info-left {
     width: 48% !important;
     float: left !important;
