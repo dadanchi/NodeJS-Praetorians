@@ -16,7 +16,9 @@ const validatePassword = (req, res, password) => {
     }
 
     if (password.match(/[^a-zA-Z0-9 ]/)) {
-        notifier.notify('Password must contain only letters a-zA-Z and digits 0-9');
+        notifier.notify(
+            'Password must contain only letters a-zA-Z and digits 0-9'
+        );
         res.redirect(redirectDirectory);
         return false;
     }
@@ -45,7 +47,9 @@ const validateUsername = (req, res, username) => {
     }
 
     if (username.match(/[^a-zA-Z0-9 ]/)) {
-        notifier.notify('Username must contain only letters a-zA-Z and digits 0-9');
+        notifier.notify(
+            'Username must contain only letters a-zA-Z and digits 0-9'
+        );
         res.redirect(redirectDirectory);
         return false;
     }
