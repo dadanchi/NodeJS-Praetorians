@@ -1,6 +1,7 @@
 const passport = require('passport');
 const helper = require('../../../helpers/helpers');
 const validator = require('../../../helpers/validator');
+const notifier = require('node-notifier');
 
 class UsersController {
     constructor(data) {
@@ -25,7 +26,7 @@ class UsersController {
         const lastname = bodyUser.lastname;
         const town = bodyUser.town;
         const profilImage = bodyUser.profilImage;
-        bodyUser.regDate = helper.getDate();       
+        bodyUser.regDate = helper.getDate();
         if (validator.validatePassword(req, res, bodyUser.password) === false ||
             validator.validateUsername(req, res, bodyUser.username) === false ||
             validator.validateName(req, res, firstname) === false ||
@@ -39,7 +40,9 @@ class UsersController {
         return this.data.users.findByUserName(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
-                    throw new Error('User already exists');
+                    notifier.notify('User already exists');
+                    res.redirect('/auth/sign-up');
+                   throw new Error('error');
                 }
                 return this.data.users.create(bodyUser)
                     .then((x) => {

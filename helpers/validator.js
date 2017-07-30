@@ -122,7 +122,6 @@ const validateProfilImageUrl = (req, res, url) => {
     return true;
 };
 
-
 module.exports = {
     validatePassword,
     validateUsername,
