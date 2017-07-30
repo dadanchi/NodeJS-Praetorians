@@ -4,7 +4,6 @@ include ../_shared/_modifyPost
 include ../_shared/_modifyContent
 
 block body
-
     h1
         = topic.title
     if topic.comments
@@ -40,9 +39,10 @@ block body
 
 
     if user
-        form(action=`/topics/${topic.title}/comments` method='post')
-            textarea.form-control(name='comment' placeholder='Add a comment')
-            button.btn.btn-success
-                | Submit
+        .add-comment
+            form(action=`/topics/${topic.title}/comments` method='post')
+                textarea.form-control(name='comment' placeholder='Add a comment')
+                button.btn.btn-success
+                    | Submit
     +page(topic.comments.length)
 //-
