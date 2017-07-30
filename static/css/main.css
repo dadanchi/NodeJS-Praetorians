@@ -137,8 +137,16 @@ div#topic-info {
     font-size: 150%;
 }
 
-div.comment, .topic-wrapper, div.description {
-    word-break:break-all;
+div.comment, .panel-body, .topic-wrapper, div.description {
+    /* word-break:break-all; */
+}
+.description{
+    min-height: 22%;
+}
+.panel.panel-default{
+    min-height: 100px;
+    background-color: #C7EEAF;
+    border-color: #4d7a1f;
 }
 
 div#topic-info>div {
@@ -152,6 +160,7 @@ div.title-info {
 .author-info {
     width: 36%;
 }
+
 
  .date-info {
     padding-right: 10px;
@@ -193,7 +202,7 @@ a.author {
 div.author {
     width: 100%;
     margin-bottom: 1%;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 div#profile-image {
@@ -274,27 +283,25 @@ div#user-posts-wrapper {
     display: none;
 
 }
-
+.delete-btn{
+    float:right;
+}
 .confirm-btn{
-     display: none;
-
+    display: none;
+    float:right;
 }
 .return-btn{
+     float:right;
      display: none;
 
 }
 .modify-form{
-    min-width: 100%;
+         min-width: 100%;
      display: none;
-     position :relative;
-}
-.return-btn{
-    position:absolute;
-    left: 37px;
-    bottom: 0%;
+     /* position :relative;  */
 }
 .modify-btn{
-    float:left;
+    float:right;
 }
 
 .add-topic-btn {

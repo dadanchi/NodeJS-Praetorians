@@ -9,11 +9,11 @@ mixin modifyPost(topicTitle, id, commContent)
             .return-btn
                 button.return-btn.btn.btn-success
                             | Return
+
+        .delete-btn
+            form.form-horizontal(action=`/topics/${topicTitle}/${id}/delete` method="post")
+                    button.delete-btn.btn.btn-danger
+                            | Delete
         .modify-btn
             button.btn.btn-info
                 | Modify
-        .delete-btn
-            form.form-horizontal(action=`/topics/${topicTitle}/${id}/delete` method="post")
-                    button.confirm-btn.btn.btn-danger
-                            | Delete
-

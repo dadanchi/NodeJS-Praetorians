@@ -15,18 +15,18 @@ $(() => {
         $this.find(modifyBtn).on('click', function() {
             $this.find(modifyBtn).css('display', 'none');
             $this.find(deleteBtn).css('display', 'none');
-            $this.find(returnBtn).css('display', 'block');
-            $this.find(modifyForm).css('display', 'block');
+            $this.find(returnBtn).css('display', 'inline-block');
+            $this.find(modifyForm).css('display', 'inline-block');
         });
         $this.find(confirmBtn).on('click', function() {
-            $this.find(modifyBtn).css('display', 'block');
-            $this.find(deleteBtn).css('display', 'block');
+            $this.find(modifyBtn).css('display', 'inline-block');
+            $this.find(deleteBtn).css('display', 'inline-block');
             $this.find(returnBtn).css('display', 'none');
             $this.find(modifyForm).css('display', 'none');
         });
         $this.find(returnBtn).on('click', function() {
-            $this.find(modifyBtn).css('display', 'block');
-            $this.find(deleteBtn).css('display', 'block');
+            $this.find(modifyBtn).css('display', 'inline-block');
+            $this.find(deleteBtn).css('display', 'inline-block');
             $this.find(returnBtn).css('display', 'none');
             $this.find(modifyForm).css('display', 'none');
         });
