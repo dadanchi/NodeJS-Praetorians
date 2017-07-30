@@ -101,7 +101,7 @@ ul {
     margin-left: 25%;
     width: 50%;
     background: #C7EEAF;
-    /* height: 100%; */
+    min-height: 100%;
 }
 
 .nav-tabs {
@@ -299,7 +299,7 @@ div#user-posts-wrapper {
 
 }
 .modify-form{
-         min-width: 100%;
+      min-width: 100%;
      display: none;
      /* position :relative;  */
 }
