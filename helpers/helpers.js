@@ -1,6 +1,6 @@
 const getDate = () => {
     const date = new Date();
-    return date.getHours() + ':' + date.getUTCMinutes() + '  '
+    return date.getHours() + 3 + ':' + date.getUTCMinutes() + '  '
         + date.getDate() + '.'
         + date.getMonth() + ' ' + date.getFullYear();
 };
