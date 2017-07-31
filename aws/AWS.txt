@@ -50,7 +50,7 @@ MONGO
 ssh -i "aws-forum.pem" ubuntu@ec2-35-158-250-200.eu-central-1.compute.amazonaws.com
 172.31.34.20
 
-
+ cd /var/app/NodeJS-Praetorians/
 
 
 
