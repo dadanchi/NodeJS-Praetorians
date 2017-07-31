@@ -7,3 +7,30 @@ key pair       aws-forum
 ssh -i ~/Desktop/AWS/key-pair "aws-forum.pem" ubuntu@ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
 
 ssh -i  "aws-forum.pem" ubuntu@ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
+\
+
+
+
+update 
+
+install
+
+
+
+connetction to root
+ - sudo -i
+sudo su
+
+
+
+notepad assign name
+C:\Windows\System32\drivers\etc\hosts.txt
+127.0.0.1 local.me
+
+ssh -i "aws-forum.pem" ubuntu@ec2-54-93-226-138.eu-central-1.compute.amazonaws.com
+
+
+Elastic IP
+35.156.216.209
+ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
+ec2-54-93-226-138.eu-central-1.compute.amazonaws.com
