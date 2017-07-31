@@ -1,5 +1,5 @@
 const notifier = require('node-notifier');
-const strToRemove = 'http://localhost:3001';
+const strToRemove = 'http://ec2-35-156-216-209.eu-central-1.compute.amazonaws.com';
 
 const validatePassword = (req, res, password) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);

@@ -124,7 +124,6 @@ const init = (data) => {
         },
 
         delete(req, res) {
-            const newContent = req.body.content;
             const id = req.params.commentId;
             const title = req.params.title;
             return Promise.resolve(data.topics.deleteComment(title, id))

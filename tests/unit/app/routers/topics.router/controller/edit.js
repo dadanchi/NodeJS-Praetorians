@@ -3,25 +3,22 @@ const { expect } = require('chai');
 const { init } =
     require('../../../../../../app/routers/topics.router/controller');
 
-describe('controller.addTopic', () => {
+describe('controller.edit', () => {
     let controller = null;
-    const topic = { 1: 1 };
+    const topic = {
+        title: 'omg hi',
+     };
     let res = null;
     let req = null;
     const comment = 'dsa';
     const data = {
         topics: {
-            create() {
+            modify() {
                 return Promise.resolve(topic);
             },
         },
-        comments: {
-            create() {
-                return Promise.resolve(comment);
-            },
-        },
         users: {
-            addComment() {
+            updateComment() {
                 return Promise.resolve(comment);
             },
         },
@@ -29,14 +26,11 @@ describe('controller.addTopic', () => {
 
     const options = {
         body: {
-            topic: {
-                title: 'dsa',
-                content: 'dsa',
-            },
+            content: 'omg content',
         },
-        user: {
-            username: 'gosho',
-            _id: 1,
+        params: {
+            commentId: 1,
+            title: topic.title,
         },
     };
 
@@ -44,10 +38,11 @@ describe('controller.addTopic', () => {
 
     res = require('../../../../req-res').getResponseMock();
     req = require('../../../../req-res').getRequestMock(options);
-    it('expect to redirect to /topics', () => {
-        return controller.addTopic(req, res)
+    it('expect to redirect to /topics/{}', () => {
+        return controller.edit(req, res)
             .then(() => {
-                expect(res.redirectUrl).to.be.deep.equal('/topics');
+                expect(res.redirectUrl).to.be.deep.equal(
+                    `/topics/${topic.title}`);
             });
     });
 });
