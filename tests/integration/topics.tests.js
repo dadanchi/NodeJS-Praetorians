@@ -33,7 +33,7 @@ describe('/topics tests', () => {
             searchTopic() {
                 return done();
                 },
-          }
+          };
         it('expect to return 200', (done) => {
             request(app)
                 .get('/topics/filtered')

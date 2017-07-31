@@ -1,3 +1,5 @@
+/* globals $ */
+
 $(() => {
     const location = window.location.href.split('page=');
     let page = parseInt(location[1], 10);

@@ -5,7 +5,6 @@ const { encryptor } = require('../helpers/helpers');
 const validator = require('../helpers/validator');
 const { ObjectID } = require('mongodb');
 
-
 class UsersData extends BaseData {
     constructor(db) {
         super(db, User, User);
