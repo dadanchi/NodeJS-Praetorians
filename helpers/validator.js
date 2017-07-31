@@ -10,7 +10,6 @@ const validatePassword = (req, res, password) => {
     }
 
     if (password.length < 6) {
-       // notifier.notify('Password must be at least 6 chars long');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -21,7 +20,6 @@ const validatePassword = (req, res, password) => {
     }
 
     if (password.includes(' ')) {
-       // notifier.notify('Password must not contain white spaces');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -80,7 +78,6 @@ const validatePasswordUpdate = (req, res, password, user) => {
         }
 
         if (password.includes(' ')) {
-           // notifier.notify('Password must not contain white spaces');
             res.redirect(redirectDirectory);
             return false;
         }

@@ -65,7 +65,7 @@ class UsersData extends BaseData {
         if (updatedData.password === '' || updatedData.password === null) {
             newPassword = oldData.password;
         } else {
-            newPassword = encryptor.encrypt(updatedData.password);
+            newPassword = updatedData.password;
         }
 
         if (updatedData.firstname) {
@@ -119,7 +119,7 @@ class UsersData extends BaseData {
             { _id: oldData._id },
             {
                 $set: {
-                    password: newPassword,
+                    password: encryptor.encrypt(newPassword),
                     firstname: newFirstName,
                     lastname: newLastName,
                     town: newTown,
