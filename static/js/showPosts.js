@@ -1,3 +1,5 @@
+/* globals $ */
+
 $(() => {
     const showBtn = $('#posts-show-btn');
     const hideBtn = $('#posts-hide-btn');

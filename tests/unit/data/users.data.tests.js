@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const UsersData = require('../../../data/users.data');
 
 describe('users.data', () => {
-    let items = [];
+    const items = [];
     let user = null;
     let userData = null;
 

@@ -1,10 +1,8 @@
-const notifier = require('node-notifier');
 const strToRemove = 'http://ec2-35-156-216-209.eu-central-1.compute.amazonaws.com';
 
 const validatePassword = (req, res, password) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
     if (password === '' || password === null) {
-        //notifier.notify('Enter password');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -30,13 +28,11 @@ const validatePassword = (req, res, password) => {
 const validateUsername = (req, res, username) => {
     const redirectDirectory = req.headers.referer.substr(strToRemove.length);
     if (username === '' || username === null) {
-      //  notifier.notify('Enter username');
         res.redirect(redirectDirectory);
         return false;
     }
 
     if (username.length < 3 || typeof username !== 'string') {
-      //  notifier.notify('Username must be at least 3 chars long string');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -47,7 +43,6 @@ const validateUsername = (req, res, username) => {
     }
 
     if (username.includes(' ')) {
-      //  notifier.notify('Username must not contain white spaces');
         res.redirect(redirectDirectory);
         return false;
     }
@@ -59,7 +54,6 @@ const validateName = (req, res, name) => {
 
     if (name !== null || name !== '' || name !== 'undefined') {
         if (name.match(/[^a-zA-Z ]/)) {
-           // notifier.notify('Name name must contain only letters a-zA-Z.');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -72,7 +66,6 @@ const validatePasswordUpdate = (req, res, password, user) => {
 
     if (password !== null || password !== '' || password !== 'undefined') {
         if (password.length < 6) {
-          //  notifier.notify('Password must be at least 6 chars long');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -90,12 +83,10 @@ const validateTown = (req, res, town) => {
 
     if (town.length !== 0) {
         if (town.length < 2) {
-           // notifier.notify('Town must be at least 2 chars long');
             res.redirect(redirectDirectory);
             return false;
         }
         if (town.match(/[^a-zA-Z ]/)) {
-          //  notifier.notify('Town name must contain only letters a-zA-Z.');
             res.redirect(redirectDirectory);
             return false;
         }
@@ -109,7 +100,6 @@ const validateProfilImageUrl = (req, res, url) => {
 
     if (url.length !== 0) {
         if (!url.match(urlRegex)) {
-            //notifier.notify('Enter a valid Url');
             res.redirect(redirectDirectory);
             return false;
         }

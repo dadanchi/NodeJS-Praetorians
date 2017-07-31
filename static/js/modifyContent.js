@@ -1,4 +1,4 @@
-
+/* globals $ */
 $(() => {
     const modifyBtn = '.modify-btn';
     const returnBtn = '.return-btn';
