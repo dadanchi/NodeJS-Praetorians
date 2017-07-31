@@ -30,10 +30,16 @@ C:\Windows\System32\drivers\etc\hosts.txt
 ssh -i "aws-forum.pem" ubuntu@ec2-54-93-226-138.eu-central-1.compute.amazonaws.com
 
 
+
+
+
+
 Elastic IP
 35.156.216.209
 ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
 ec2-54-93-226-138.eu-central-1.compute.amazonaws.com
+
+
 
 
 NODE
@@ -43,3 +49,13 @@ ssh -i "aws-forum.pem" ubuntu@ec2-35-156-216-209.eu-central-1.compute.amazonaws.
 MONGO
 ssh -i "aws-forum.pem" ubuntu@ec2-35-158-250-200.eu-central-1.compute.amazonaws.com
 172.31.34.20
+
+
+
+
+
+Mongo Database manipulation
+enter bash MONGO ssh --> sudo -i --> systemctl stop mongod 
+--> mongo --> mongod --> (mongod is running)
+--> start new bash MONGO ssh --> sudo -i --> mongo --> 
+--> show dbs --> use forum-db --> db.DropdDatabase()

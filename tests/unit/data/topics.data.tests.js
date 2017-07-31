@@ -38,8 +38,8 @@ describe('Base data getAllTopics()', () => {
 
         it('expect to return topics', () => {
             return data.getAllTopics()
-                .then((models) => {
-                    expect(models).to.deep.equal(topics);
+                .then((result) => {
+                    expect(result).to.deep.equal(topics);
                 });
         });
     });
