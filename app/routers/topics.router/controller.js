@@ -31,15 +31,13 @@ const init = (data) => {
                 authorId: req.user._id,
                 date: helper.getDate(),
             };
-            // validation server side
+
             return Promise.resolve(data.comments.create(comment))
                 .then((newComm) => {
                     return Promise.resolve(data.users.addComment(newComm))
                         .then(() => {
                             topic.comments = [];
                             topic.comments.push(newComm);
-                            // req.user.comments = [];
-                            // req.user.comments.push(comment);
                             return data.topics.create(topic)
                                 .then((top) => {
                                     return res.redirect('/topics');
@@ -75,7 +73,8 @@ const init = (data) => {
                             croppedPart = (page - 1) * size;
                         }
                         topic.comments =
-                            topic.comments.slice((page - 1) * size, page * size);
+                            topic.comments.slice(
+                                (page - 1) * size, page * size);
                     }
                     return res.render('topics/comments', {
                         topic: topic,
