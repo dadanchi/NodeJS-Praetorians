@@ -1,0 +1,9 @@
+Security groups    forum-app
+
+key pair       aws-forum
+
+
+
+ssh -i ~/Desktop/AWS/key-pair "aws-forum.pem" ubuntu@ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
+
+ssh -i  "aws-forum.pem" ubuntu@ec2-54-93-200-244.eu-central-1.compute.amazonaws.com
