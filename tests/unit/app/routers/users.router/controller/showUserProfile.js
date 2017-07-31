@@ -1,36 +1,39 @@
 const { expect } = require('chai');
-const MockReq = require('mock-req');
 
 const { init } =
     require('../../../../../../app/routers/users.router/controller');
 
-describe('users controller', () => {
+describe('usersController.showUserProfile', () => {
     let data = null;
     let controller = null;
-    const user = [1, 2, 3, 4];
+    let user = [1, 2, 3, 4];
+    let options = null;
 
     let res = null;
     let req = null;
 
-    beforeEach(() => {
-        data = {
-            users: {
-                findByUserName() {
-                    return Promise.resolve(user);
-                },
+    user = { username: 'gosho' };
+    data = {
+        users: {
+            findByUserName() {
+                return Promise.resolve(user);
             },
-        };
-        const params = {
-            params: {
-                user: {
-                    username: 'gosho',
-                },
+        },
+    };
+
+    options = {
+        params: {
+            user: {
+                username: 'gosho',
             },
-        };
-        controller = init(data);
-        res = require('../../../../req-res').getResponseMock();
-        req = require('../../../../req-res').getRequestMock(params);
-    });
+        },
+    };
+
+    controller = init(data);
+
+    res = require('../../../../req-res').getResponseMock();
+    req = require('../../../../req-res').getRequestMock(options);
+
 
     it('expect showUserProfile to return user', () => {
         return controller.showUserProfile(req, res)
@@ -40,5 +43,42 @@ describe('users controller', () => {
                 });
                 expect(res.viewName).to.be.equal('users/profiles');
             });
+    });
+});
+
+
+describe('usersController.showUserProfile', () => {
+    let data = null;
+    let controller = null;
+    const user = null;
+    let options = null;
+
+    let res = null;
+    let req = null;
+        data = {
+            users: {
+                findByUserName() {
+                    return Promise.resolve();
+                },
+            },
+        };
+
+        options = {
+            params: {
+                user: null,
+            },
+        };
+
+
+        controller = init(data);
+        res = require('../../../../req-res').getResponseMock();
+        req = require('../../../../req-res').getRequestMock(options);
+
+        it('expect showUserProfile to redirect to error page',
+            () => {
+                return controller.showUserProfile(req, res)
+                    .then((usr) => {
+                        expect(res.viewName).to.be.equal('error');
+        });
     });
 });
