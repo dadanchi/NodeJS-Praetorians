@@ -1,6 +1,5 @@
 const BaseData = require('./base/base.data');
 const Topic = require('../models/topic.model');
-const helper = require('../helpers/helpers');
 const { ObjectID } = require('mongodb');
 
 class TopicsData extends BaseData {
@@ -32,18 +31,18 @@ class TopicsData extends BaseData {
                 },
             });
     }
-    deleteComment(title, id) {
-        return this.collection.update(
-            { 'title': `${title}` },
-            {
-                $pull: {
-                    'comments': {
-                        '_id': new ObjectID(`${id}`),
-                    },
-                },
-            },
-        );
-    }
+    // deleteComment(title, id) {
+    //     return this.collection.update(
+    //         { 'title': `${title}` },
+    //         {
+    //             $pull: {
+    //                 'comments': {
+    //                     '_id': new ObjectID(`${id}`),
+    //                 },
+    //             },
+    //         },
+    //     );
+    // }
 
     addComment(comment) {
         return Promise.resolve(this.collection.findOne(
@@ -72,7 +71,6 @@ class TopicsData extends BaseData {
                     });
             });
     }
-
 
     findBy(input) {
         return this.collection.find(
