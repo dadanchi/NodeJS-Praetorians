@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { init } = require('../../app/');
 describe('/topics tests', () => {
     const connectionString = 'mongodb://localhost/forum-db-test';
     let app = null;
@@ -12,8 +13,36 @@ describe('/topics tests', () => {
                 app = _app;
             });
     });
+    describe('GET /topics', () => {
 
+        it('expect to return 200', (done) => {
+            request(app)
+                .get('/topics')
+                .expect(200)
+                .end((err, res) => {
+                    if (err) {
+                        return done(err);
+                    }
+                    return done();
+                });
+        });
+    });
+    describe('PSOT /topics', () => {
+
+        it('expect to return 200', (done) => {
+            request(app)
+                .get('/topics')
+                .expect(200)
+                .end((err, res) => {
+                    if (err) {
+                        return done(err);
+                    }
+                    return done();
+                });
+        });
+    });
     describe('GET /topics/form', () => {
+
         it('expect to return 302', (done) => {
             request(app)
                 .get('/topics/form')
@@ -27,11 +56,11 @@ describe('/topics tests', () => {
         });
     });
      describe('GET /topics/filtered', () => {
-        //   const controller = {
-        //     searchTopic() {
-        //         return done();
-        //         },
-        //   };
+          const controller = {
+            searchTopic() {
+                return done();
+                },
+          }
         it('expect to return 200', (done) => {
             request(app)
                 .get('/topics/filtered')
