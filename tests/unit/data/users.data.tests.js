@@ -37,8 +37,6 @@ describe('users.data', () => {
         };
     };
 
-
-
     sinon.stub(db, 'collection')
         .callsFake(() => {
             return { find, findOne };

@@ -1,9 +1,7 @@
 const { expect } = require('chai');
-const sinon = require('sinon');
-const strToRemove = 'http://localhost:3001';
-const mockReq = require('mock-req');
+const MockReq = require('mock-req');
 
-const req = new mockReq({
+const req = new MockReq({
     headers: {
         referer: 'http://localhost:3001/auth/sign-up',
     },
